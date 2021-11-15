@@ -1,0 +1,183 @@
+Model {
+  Name			  "sampleModel245"
+  System {
+    Name		    "sampleModel245"
+    Location		    [93, 84, 907, 617]
+    SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
+    Open		    on
+    PortBlocksUseCompactNotation off
+    SetExecutionDomain	    off
+    ExecutionDomainType	    "Deduce"
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    "7"
+    SimulinkSubDomain	    "Simulink"
+    Block {
+      BlockType		      Reference
+      Name		      "cfblk1"
+      SID		      "1"
+      Ports		      [1, 1]
+      Position		      [30, 30, 90, 90]
+      ZOrder		      1
+      LibraryVersion	      "1.480"
+      SourceBlock	      "simulink/Discrete/Transfer Fcn\nLead or Lag"
+      SourceType	      "Lead or Lag Compensator"
+      SourceProductBaseCode   "SL"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      ContentPreviewEnabled   off
+      PoleZ		      "0.95"
+      ZeroZ		      "0.75"
+      ICPrevOutput	      "0.0"
+      ICPrevInput	      "0.0"
+      RndMeth		      "Floor"
+      DoSatur		      off
+    }
+    Block {
+      BlockType		      Product
+      Name		      "cfblk2"
+      SID		      "2"
+      Ports		      [2, 1]
+      Position		      [190, 30, 250, 90]
+      ZOrder		      2
+      Inputs		      "**"
+    }
+    Block {
+      BlockType		      Bias
+      Name		      "cfblk3"
+      SID		      "3"
+      Position		      [350, 30, 410, 90]
+      ZOrder		      3
+      Bias		      "[-942235279.924118]"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      DotProduct
+      Name		      "cfblk4"
+      SID		      "4"
+      Position		      [510, 30, 570, 90]
+      ZOrder		      4
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "cfblk5"
+      SID		      "5"
+      Ports		      [0, 1]
+      Position		      [670, 30, 730, 90]
+      ZOrder		      5
+      LibraryVersion	      "1.480"
+      SourceBlock	      "simulink/Sources/Counter\nFree-Running"
+      SourceType	      "Counter Free-Running"
+      SourceProductBaseCode   "SL"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      ContentPreviewEnabled   off
+      NumBits		      "[26.000000]"
+      tsamp		      "-1"
+    }
+    Block {
+      BlockType		      Sin
+      Name		      "cfblk6"
+      SID		      "6"
+      Ports		      [0, 1]
+      Position		      [830, 30, 890, 90]
+      ZOrder		      6
+      Amplitude		      "[-476487974.069218]"
+      Bias		      "[-265042259.417452]"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "cfblk7"
+      SID		      "7"
+      Ports		      [0, 1]
+      Position		      [990, 30, 1050, 90]
+      ZOrder		      7
+      LibraryVersion	      "1.480"
+      SourceBlock	      "simulink/Sources/Repeating\nSequence\nStair"
+      SourceType	      "Repeating Sequence Stair"
+      SourceProductBaseCode   "SL"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      ContentPreviewEnabled   off
+      OutValues		      "[-661202217.515269, 465830496.445882]"
+      tsamp		      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "double"
+      OutputDataTypeScalingMode	"double"
+      OutDataType	      "fixdt(0,8)"
+      ConRadixGroup	      "Best Precision: Vector-wise"
+      OutScaling	      "2^-12"
+      LockScale		      off
+    }
+    Line {
+      ZOrder		      1
+      SrcBlock		      "cfblk5"
+      SrcPort		      1
+      Points		      [0, -35; -560, 0]
+      DstBlock		      "cfblk2"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      2
+      SrcBlock		      "cfblk4"
+      SrcPort		      1
+      Points		      [0, 35; -240, 0]
+      DstBlock		      "cfblk3"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      3
+      SrcBlock		      "cfblk7"
+      SrcPort		      1
+      Points		      [0, 45; -880, 0]
+      DstBlock		      "cfblk2"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      4
+      SrcBlock		      "cfblk6"
+      SrcPort		      1
+      Points		      [0, -35; -400, 0]
+      DstBlock		      "cfblk4"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      5
+      SrcBlock		      "cfblk2"
+      SrcPort		      1
+      Points		      [0, -35; -240, 0]
+      DstBlock		      "cfblk1"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      6
+      SrcBlock		      "cfblk1"
+      SrcPort		      1
+      Points		      [75, 0; 0, 35; 325, 0]
+      DstBlock		      "cfblk4"
+      DstPort		      2
+    }
+  }
+}

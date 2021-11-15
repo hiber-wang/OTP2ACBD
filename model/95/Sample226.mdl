@@ -1,0 +1,315 @@
+Model {
+  Name			  "sampleModel222"
+  System {
+    Name		    "sampleModel222"
+    Location		    [93, 84, 907, 617]
+    SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
+    Open		    on
+    PortBlocksUseCompactNotation off
+    SetExecutionDomain	    off
+    ExecutionDomainType	    "Deduce"
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    "17"
+    SimulinkSubDomain	    "Simulink"
+    Block {
+      BlockType		      Sqrt
+      Name		      "cfblk1"
+      SID		      "1"
+      Position		      [30, 30, 90, 90]
+      ZOrder		      1
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "cfblk2"
+      SID		      "2"
+      Ports		      [1, 1]
+      Position		      [190, 30, 250, 90]
+      ZOrder		      2
+      IconShape		      "rectangular"
+      Inputs		      "+"
+    }
+    Block {
+      BlockType		      Sqrt
+      Name		      "cfblk3"
+      SID		      "3"
+      Position		      [350, 30, 410, 90]
+      ZOrder		      3
+      Operator		      "rSqrt"
+      AlgorithmType	      "Newton-Raphson"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "cfblk4"
+      SID		      "4"
+      Ports		      []
+      Position		      [510, 30, 570, 90]
+      ZOrder		      4
+      ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg"
+      NumInputPorts	      "1"
+      Floating		      on
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "cfblk5"
+      SID		      "5"
+      Ports		      [1]
+      Position		      [670, 30, 730, 90]
+      ZOrder		      5
+      ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg"
+      NumInputPorts	      "1"
+      Floating		      off
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "cfblk6"
+      SID		      "6"
+      Position		      [830, 30, 890, 90]
+      ZOrder		      6
+      Value		      "[-237478269.934535]"
+      SampleTime	      "1"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "cfblk7"
+      SID		      "7"
+      Ports		      [2, 2]
+      Position		      [990, 30, 1050, 90]
+      ZOrder		      7
+      RequestExecContextInheritance off
+      ContentPreviewEnabled   on
+      System {
+	Name			"cfblk7"
+	Location		[433, 403, 931, 703]
+	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
+	Open			off
+	PortBlocksUseCompactNotation off
+	SetExecutionDomain	off
+	ExecutionDomainType	"Deduce"
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SimulinkSubDomain	"Simulink"
+	Block {
+	  BlockType		  Inport
+	  Name			  "cfblk1"
+	  SID			  "8"
+	  Position		  [30, 30, 90, 90]
+	  ZOrder		  -1
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "cfblk7"
+	  SID			  "14"
+	  Position		  [990, 30, 1050, 90]
+	  ZOrder		  5
+	  Port			  "2"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "cfblk3"
+	  SID			  "10"
+	  Ports			  [1, 1]
+	  Position		  [350, 30, 410, 90]
+	  ZOrder		  1
+	  LibraryVersion	  "1.441"
+	  SourceBlock		  "simulink/Discrete/Tapped Delay"
+	  SourceType		  "Tapped Delay Line"
+	  SourceProductBaseCode	  "SL"
+	  MultiThreadCoSim	  auto
+	  vinit			  0.0
+	  samptime		  -1
+	  NumDelays		  1
+	  DelayOrder		  Oldest
+	  includeCurrent	  off
+	}
+	Block {
+	  BlockType		  Delay
+	  Name			  "cfblk4"
+	  SID			  "11"
+	  Ports			  [2, 1]
+	  Position		  [510, 30, 570, 90]
+	  ZOrder		  2
+	  InputPortMap		  "u0,p1"
+	  DelayLengthSource	  "Input port"
+	  SampleTime		  "1"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "cfblk5"
+	  SID			  "12"
+	  Position		  [670, 30, 730, 90]
+	  ZOrder		  3
+	  Value			  "[-437843947.019871]"
+	  SampleTime		  "1"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "cfblk6"
+	  SID			  "13"
+	  Position		  [830, 30, 890, 90]
+	  ZOrder		  4
+	  Value			  "[911501833.466195]"
+	  SampleTime		  "1"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "cfblk2"
+	  SID			  "9"
+	  Position		  [190, 30, 250, 90]
+	  ZOrder		  -2
+	  VectorParamsAs1DForOutWhenUnconnected	off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "cfblk8"
+	  SID			  "15"
+	  Position		  [1150, 30, 1210, 90]
+	  ZOrder		  6
+	  Port			  "2"
+	  VectorParamsAs1DForOutWhenUnconnected	off
+	}
+	Line {
+	  ZOrder		  2
+	  SrcBlock		  "cfblk5"
+	  SrcPort		  1
+	  Points		  [0, -35; -240, 0]
+	  DstBlock		  "cfblk4"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3
+	  SrcBlock		  "cfblk4"
+	  SrcPort		  1
+	  Points		  [0, 35; -240, 0]
+	  DstBlock		  "cfblk3"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "cfblk1"
+	  SrcPort		  1
+	  DstBlock		  "cfblk2"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  5
+	  SrcBlock		  "cfblk6"
+	  SrcPort		  1
+	  Points		  [0, -45; -410, 0; 0, 60]
+	  DstBlock		  "cfblk4"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  6
+	  SrcBlock		  "cfblk3"
+	  SrcPort		  1
+	  Points		  [65, 0; 0, -50; 655, 0]
+	  DstBlock		  "cfblk8"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Delay
+      Name		      "cfblk8"
+      SID		      "16"
+      Ports		      [1, 1]
+      Position		      [1150, 30, 1210, 90]
+      ZOrder		      8
+      InputPortMap	      "u0"
+      SampleTime	      "1"
+    }
+    Block {
+      BlockType		      Delay
+      Name		      "cfblk9"
+      SID		      "17"
+      Ports		      [1, 1]
+      Position		      [1310, 30, 1370, 90]
+      ZOrder		      9
+      InputPortMap	      "u0"
+      SampleTime	      "1"
+    }
+    Line {
+      ZOrder		      1
+      SrcBlock		      "cfblk2"
+      SrcPort		      1
+      Points		      [85, 0; 0, -35; 635, 0]
+      DstBlock		      "cfblk7"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      2
+      SrcBlock		      "cfblk7"
+      SrcPort		      1
+      Points		      [0, -30; -720, 0]
+      DstBlock		      "cfblk3"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      4
+      SrcBlock		      "cfblk1"
+      SrcPort		      1
+      DstBlock		      "cfblk2"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      6
+      SrcBlock		      "cfblk6"
+      SrcPort		      1
+      Points		      [0, -35; -240, 0]
+      DstBlock		      "cfblk5"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      7
+      SrcBlock		      "cfblk3"
+      SrcPort		      1
+      Points		      [90, 0; 0, -35; 630, 0]
+      DstBlock		      "cfblk8"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      8
+      SrcBlock		      "cfblk8"
+      SrcPort		      1
+      Points		      [0, 35; -240, 0]
+      DstBlock		      "cfblk7"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      9
+      SrcBlock		      "cfblk7"
+      SrcPort		      2
+      Points		      [90, 0; 0, 20; 150, 0]
+      DstBlock		      "cfblk9"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      10
+      SrcBlock		      "cfblk9"
+      SrcPort		      1
+      Points		      [0, 45; -1360, 0]
+      DstBlock		      "cfblk1"
+      DstPort		      1
+    }
+  }
+}

@@ -1,0 +1,327 @@
+Model {
+  Name			  "sampleModel390"
+  System {
+    Name		    "sampleModel390"
+    Location		    [23, 14, 1017, 767]
+    SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
+    Open		    on
+    PortBlocksUseCompactNotation off
+    SetExecutionDomain	    off
+    ExecutionDomainType	    "Deduce"
+    ModelBrowserVisibility  on
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    "10"
+    SimulinkSubDomain	    "Simulink"
+    Block {
+      BlockType		      Reference
+      Name		      "cfblk1"
+      SID		      "1"
+      Ports		      [1, 1]
+      Position		      [30, 30, 90, 90]
+      ZOrder		      1
+      LibraryVersion	      "1.480"
+      SourceBlock	      "simulink/Discrete/Transfer Fcn\nReal Zero"
+      SourceType	      "Transfer Fcn Real Zero"
+      SourceProductBaseCode   "SL"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      ContentPreviewEnabled   off
+      ZeroZ		      "0.75"
+      ICPrevInput	      "0.0"
+      InputProcessing	      "Elements as channels (sample based)"
+      RndMeth		      "Floor"
+      DoSatur		      off
+    }
+    Block {
+      BlockType		      Delay
+      Name		      "cfblk10"
+      SID		      "10"
+      Ports		      [1, 1]
+      Position		      [1470, 30, 1530, 90]
+      ZOrder		      27
+      InputPortMap	      "u0"
+      SampleTime	      "1"
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "cfblk2"
+      SID		      "2"
+      Ports		      [1, 1]
+      Position		      [190, 30, 250, 90]
+      ZOrder		      2
+      IconShape		      "rectangular"
+      Inputs		      "+"
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "cfblk3"
+      SID		      "3"
+      Ports		      [2, 1]
+      Position		      [350, 30, 410, 90]
+      ZOrder		      3
+      Inputs		      "|++"
+    }
+    Block {
+      BlockType		      Polyval
+      Name		      "cfblk4"
+      SID		      "4"
+      Position		      [510, 30, 570, 90]
+      ZOrder		      4
+      Coefs		      "[ +2.081618890e-019, -1.441693666e-014, +4.719686976e-010, -8.536869453e-006, +1.621573104e-001, -"
+      "8.087801117e+001 ]"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "cfblk5"
+      SID		      "5"
+      Ports		      [1, 1]
+      Position		      [670, 30, 730, 90]
+      ZOrder		      5
+      LibraryVersion	      "1.480"
+      SourceBlock	      "simulink/Math\nOperations/Slider\nGain"
+      SourceType	      "Slider Gain"
+      SourceProductBaseCode   "SL"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      ContentPreviewEnabled   off
+      gain		      "1"
+      low		      "0"
+      high		      "2"
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "cfblk6"
+      SID		      "6"
+      Ports		      [2, 1]
+      Position		      [830, 30, 890, 90]
+      ZOrder		      6
+      IconShape		      "rectangular"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "cfblk7"
+      SID		      "7"
+      Ports		      []
+      Position		      [990, 30, 1050, 90]
+      ZOrder		      7
+      ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg"
+      NumInputPorts	      "1"
+      Floating		      on
+    }
+    Block {
+      BlockType		      Record
+      Name		      "cfblk8"
+      SID		      "8"
+      Ports		      [1]
+      Position		      [1150, 30, 1210, 90]
+      ZOrder		      25
+      NumPorts		      "DataTag0"
+      FileSettingsInternal    "{\"entries\":[{\"content\":{\"excelSettings\":{\"content\":{},\"type\":\"Streamout.Exce"
+      "lSettings\"}},\"type\":\"Streamout.FileSettingStorage\",\"uuid\":\"659aac0d-46f3-4b56-8419-d485c9c020eb\"}],\"pa"
+      "ckageUris\":[\"http://schema.mathworks.com/mf0/streamout_blocks/R2020a\"],\"version\":\"1.0\"}"
+      FrameSettings	      "DataTag1"
+      SignalsInternal	      "{\"entries\":[{\"content\":{\"signals\":[{\"content\":{\"blockPath\":[\"sampleModel390/cf"
+      "blk8\"],\"channel\":[],\"dimensions\":[1],\"domain\":\"samplemodel390/cfblk8\",\"lineColor\":\"#edb120\",\"plots"
+      "\":[1],\"port\":1,\"sid\":[],\"signalID\":297,\"signalName\":\"cfblk9\"},\"type\":\"RecordBlkView.Signal\",\"uui"
+      "d\":\"7edb82c4-d29b-461d-9a46-7dcb68e3fbfb\"}]},\"type\":\"RecordBlkView.InputSignals\",\"uuid\":\"7cb1131a-4152"
+      "-425a-8513-a5f50961551b\"}],\"packageUris\":[\"http://schema.mathworks.com/mf0/streamout_blocks/R2020a\"],\"vers"
+      "ion\":\"1.0\"}"
+      Object {
+	$PropName		"PlotPreferences"
+	$ObjectID		24
+	$ClassName		"Simulink.record.internal.PlotPreferences"
+	Object {
+	  $PropName		  "Time"
+	  $ObjectID		  25
+	  $ClassName		  "Simulink.record.internal.TimePlotPreferences"
+	  TicksColor		  [0.0, 0.0, 0.0]
+	  TicksPosition		  "Outside"
+	  TickLabels		  "All"
+	  PlotColor		  [1.0, 1.0, 1.0]
+	  GridColor		  [0.81568627450980391, 0.82352941176470584, 0.82745098039215681]
+	  LegendPosition	  "TopLeft"
+	  Markers		  "Hide"
+	  GridLines		  "All"
+	  PlotBorder		  "Show"
+	  UpdateMode		  "Wrap"
+	  TimeSpan		  "Auto"
+	  TLimits		  [0.0, 10.0]
+	  YLimits		  [-3.0, 3.0]
+	  ScaleAtStop		  [1]
+	}
+	Object {
+	  $PropName		  "XY"
+	  $ObjectID		  26
+	  $ClassName		  "Simulink.record.internal.XYPlotPreferences"
+	  TicksColor		  [0.0, 0.0, 0.0]
+	  PlotColor		  [1.0, 1.0, 1.0]
+	  GridColor		  [0.81568627450980391, 0.82352941176470584, 0.82745098039215681]
+	  Line			  "Show"
+	  LineColor		  "YColor"
+	  Markers		  "Hide"
+	  MarkerBorder		  "XColor"
+	  MarkerFill		  "YColor"
+	  MarkerSize		  [3.5]
+	  TrendLine		  "Hide"
+	  TrendLineColor	  [1.0, 0.0, 0.0]
+	  TrendLineWeight	  [2.5]
+	  TrendLineType		  "Linear"
+	  PolynomialOrder	  [3.0]
+	  GridLines		  "On"
+	}
+	Object {
+	  $PropName		  "Map"
+	  $ObjectID		  27
+	  $ClassName		  "Simulink.record.internal.MapPlotPreferences"
+	  Type			  "Street"
+	}
+	Object {
+	  $PropName		  "Sparklines"
+	  $ObjectID		  28
+	  $ClassName		  "Simulink.record.internal.SparklinePlotPreferences"
+	  SubPlotID		  [1]
+	  minHeight		  [80]
+	  TicksColor		  [0.0, 0.0, 0.0]
+	  TicksPosition		  "Inside"
+	  TickLabels		  "All"
+	  PlotColor		  [1.0, 1.0, 1.0]
+	  GridColor		  [0.81568627450980391, 0.82352941176470584, 0.82745098039215681]
+	  LegendPosition	  "InsideLeft"
+	  Markers		  "Hide"
+	  GridLines		  "All"
+	  PlotBorder		  "Show"
+	  UpdateMode		  "Wrap"
+	  TimeSpan		  "Auto"
+	  TLimits		  [0.0, 100.0]
+	  YLimits		  [-3.0, 3.0]
+	  ScaleAtStop		  [1]
+	}
+      }
+      CanvasColor	      "DataTag2"
+      VisualizationBindings   "{\"sparklinesplugin\":{\"info\":[{\"bindingParametersList\":[],\"subplotID\":1}]}}"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "cfblk9"
+      SID		      "9"
+      Position		      [1310, 30, 1370, 90]
+      ZOrder		      26
+      Value		      "[-275437559.754518]"
+      SampleTime	      "1"
+    }
+    Line {
+      ZOrder		      1
+      SrcBlock		      "cfblk6"
+      SrcPort		      1
+      Points		      [0, -35; -560, 0]
+      DstBlock		      "cfblk3"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      2
+      SrcBlock		      "cfblk5"
+      SrcPort		      1
+      Points		      [0, 40; -560, 0]
+      DstBlock		      "cfblk2"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      4
+      SrcBlock		      "cfblk1"
+      SrcPort		      1
+      Points		      [70, 0; 0, 50; 215, 0]
+      DstBlock		      "cfblk3"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      5
+      SrcBlock		      "cfblk2"
+      SrcPort		      1
+      Points		      [75, 0; 0, -35; 485, 0]
+      DstBlock		      "cfblk6"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      6
+      SrcBlock		      "cfblk3"
+      SrcPort		      1
+      DstBlock		      "cfblk4"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      8
+      SrcBlock		      "cfblk9"
+      SrcPort		      1
+      Points		      [0, 0]
+      Branch {
+	ZOrder			14
+	Points			[0, -35; -240, 0]
+	Branch {
+	  ZOrder		  7
+	  Points		  [-480, 0]
+	  DstBlock		  "cfblk5"
+	  DstPort		  1
+	}
+	Branch {
+	  ZOrder		  9
+	  DstBlock		  "cfblk8"
+	  DstPort		  1
+	}
+      }
+      Branch {
+	ZOrder			10
+	Points			[0, 35; -560, 0]
+	DstBlock		"cfblk6"
+	DstPort			2
+      }
+    }
+    Line {
+      ZOrder		      11
+      SrcBlock		      "cfblk4"
+      SrcPort		      1
+      Points		      [75, 0; 0, -35; 805, 0]
+      DstBlock		      "cfblk10"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      12
+      SrcBlock		      "cfblk10"
+      SrcPort		      1
+      Points		      [0, -45; -1520, 0]
+      DstBlock		      "cfblk1"
+      DstPort		      1
+    }
+  }
+}
+MatData {
+  NumRecords		  3
+  DataRecord {
+    Tag			    DataTag0
+    Data		    "  %)30     .    .     8    (    !@         %    \"     $    !     0         )    \"            / _"
+  }
+  DataRecord {
+    Tag			    DataTag1
+    Data		    "  %)30     .    ,     8    (    \"0(        %    \"     $    !     0         \"  $       "
+  }
+  DataRecord {
+    Tag			    DataTag2
+    Data		    "  %)30     .    2     8    (    !@         %    \"     $    #     0         )    &    %]?7U]?7^\\_7U]?7"
+    "U]?[S]?7U]?7U_O/P"
+  }
+}

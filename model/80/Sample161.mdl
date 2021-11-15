@@ -1,0 +1,199 @@
+Model {
+Name "sample"
+System {
+Name "sample"
+SystemRect [0.000000, 0.000000, 0.000000, 0.000000]
+SetExecutionDomain	off
+ExecutionDomainType	"Deduce"
+SimulinkSubDomain	"Simulink"
+Block {
+BlockType Inport
+Name "a"
+SID "9"
+}
+Block {
+BlockType Inport
+Name "i"
+SID "15"
+Port "2"
+}
+Block {
+BlockType Inport
+Name "j"
+SID "16"
+Port "3"
+}
+Block {
+BlockType Delay
+Name "c"
+SID "11"
+Ports [1, 1]
+InputPortMap "u0"
+SampleTime "1"
+}
+Block {
+BlockType DiscreteZeroPole
+Name "d"
+SID "10"
+Poles "[0 0.5]"
+Gain "1"
+}
+Block {
+BlockType Reference
+Name "e"
+SID "11"
+Ports [2, 1]
+SourceBlock "simulink/Math\nOperations/MinMax\nRunning\nResettable"
+Function min
+vinit 0.0
+}
+Block {
+BlockType Signum
+Name "f"
+SID "23"
+}
+Block {
+BlockType Constant
+Name "g"
+SID "24"
+Value "[679419676.145347]"
+SampleTime "1"
+}
+Block {
+BlockType Constant
+Name "h"
+SID "25"
+Value "[-972101542.229194]"
+SampleTime "1"
+}
+Block {
+BlockType Outport
+Name "i"
+SID "22"
+VectorParamsAs1DForOutWhenUnconnected	off
+}
+Block {
+BlockType Outport
+Name "j"
+SID "27"
+Port "2"
+VectorParamsAs1DForOutWhenUnconnected	off
+}
+Block {
+BlockType Outport
+Name "k"
+SID "28"
+Port "3"
+VectorParamsAs1DForOutWhenUnconnected	off
+}
+Block {
+BlockType Outport
+Name "l"
+SID "29"
+Port "3"
+VectorParamsAs1DForOutWhenUnconnected	off
+}
+Line {
+SrcBlock "g"
+SrcPort 1
+DstBlock "h"
+DstPort 1
+}
+Line {
+SrcBlock "h"
+SrcPort 1
+DstBlock "i"
+DstPort 1
+}
+Line {
+SrcBlock "g"
+SrcPort 1
+DstBlock "c"
+DstPort 1
+}
+Line {
+SrcBlock "c"
+SrcPort 1
+DstBlock "g"
+DstPort 1
+}
+Line {
+SrcBlock "b"
+SrcPort 1
+DstBlock "l"
+DstPort 1
+}
+Line {
+SrcBlock "h"
+SrcPort 1
+DstBlock "l"
+DstPort 1
+}
+Line {
+SrcBlock "j"
+SrcPort 1
+DstBlock "c"
+DstPort 2
+}
+Line {
+SrcBlock "k"
+SrcPort 1
+DstBlock "h"
+DstPort 1
+}
+Line {
+SrcBlock "a"
+SrcPort 1
+DstBlock "i"
+DstPort 1
+}
+Line {
+SrcBlock "h"
+SrcPort 2
+DstBlock "k"
+DstPort 1
+}
+Line {
+SrcBlock "i"
+SrcPort 1
+Branch {
+DstBlock "l"
+DstPort 1
+}
+Branch {
+DstBlock "k"
+DstPort 1
+}
+}
+Line {
+SrcBlock "f"
+SrcPort 1
+Branch {
+DstBlock "l"
+DstPort 1
+}
+Branch {
+DstBlock "m"
+DstPort 2
+}
+}
+Line {
+SrcBlock "k"
+SrcPort 1
+DstBlock "h"
+DstPort 2
+}
+Line {
+SrcBlock "j"
+SrcPort 1
+DstBlock "c"
+DstPort 1
+}
+Line {
+SrcBlock "c"
+SrcPort 1
+DstBlock "f"
+DstPort 1
+}
+}
+}

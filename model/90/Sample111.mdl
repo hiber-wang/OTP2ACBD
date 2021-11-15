@@ -1,0 +1,159 @@
+Model {
+Name toy
+System {
+Name toy
+Block {
+BlockType Step
+Name "a"
+Time "[45.000000]"
+Before "[159381945.385774]"
+After "[-126717288.422746]"
+SampleTime "0"
+}
+
+Block {
+BlockType Signum
+Name "c"
+}
+
+Block {
+BlockType Delay
+Name "d"
+Ports [2, 1]
+InputPortMap "u0,e6"
+ShowEnablePort on
+SampleTime "1"
+}
+
+Block {
+BlockType Trigonometry
+Name "e"
+Ports [1, 1]
+}
+
+Block {
+BlockType Reference
+Name "f"
+Ports [1, 1]
+LibraryVersion "1.444"
+SourceBlock "simulink/Discrete/Tapped Delay"
+SourceType "Tapped Delay Line"
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+MultiThreadCoSim "auto"
+vinit "0.0"
+samptime "-1"
+NumDelays "1"
+DelayOrder "Oldest"
+includeCurrent off
+}
+
+Block {
+BlockType DiscreteFir
+Name "g"
+Ports [1, 1]
+InputPortMap "u0"
+OutputPortMap "o0"
+SampleTime "1"
+}
+
+Block {
+BlockType Delay
+Name "h"
+Ports [1, 1]
+InputPortMap "u0"
+SampleTime "1"
+}
+
+Block {
+BlockType Reshape
+Name "i"
+Ports [1, 1]
+}
+
+Block {
+BlockType Scope
+Name "j"
+Ports [0]
+NumInputPorts "1"
+Floating off
+}
+
+Block {
+BlockType Scope
+Name "k"
+Ports []
+NumInputPorts "1"
+Floating on
+}
+
+Block {
+BlockType Outport
+Name "b"
+IconDisplay "Port number"
+}
+
+Line {
+SrcBlock "a"
+SrcPort 1
+Branch {
+DstBlock "b"
+DstPort 1
+}
+Branch {
+DstBlock "c"
+DstPort 1
+}
+}
+
+Line {
+SrcBlock "c"
+SrcPort 1
+DstBlock "d"
+DstPort 1
+}
+
+Line {
+SrcBlock "d"
+SrcPort 1
+DstBlock "e"
+DstPort 1
+}
+
+Line {
+SrcBlock "f"
+SrcPort 1
+DstBlock "d"
+DstPort 2
+}
+
+Line {
+SrcBlock "e"
+SrcPort 1
+DstBlock "g"
+DstPort 1
+}
+
+Line {
+SrcBlock "h"
+SrcPort 1
+DstBlock "f"
+DstPort 1
+}
+
+Line {
+SrcBlock "g"
+SrcPort 1
+DstBlock "i"
+DstPort 1
+}
+
+Line {
+SrcBlock "i"
+SrcPort 1
+DstBlock "h"
+DstPort 1
+}
+
+}
+}

@@ -1,0 +1,918 @@
+Model {
+Name toy
+System {
+Name toy
+Block {
+BlockType Constant
+Name "a"
+Value "[-661787488.058344]"
+SampleTime "1"
+}
+
+Block {
+BlockType Product
+Name "b"
+Ports [2, 1]
+Inputs "**"
+InputSameDT off
+OutDataTypeStr "Inherit: Inherit via internal rule"
+RndMeth "Floor"
+SaturateOnIntegerOverflow off
+}
+
+Block {
+BlockType DiscreteFir
+Name "c"
+Ports [1, 1]
+InputPortMap "u0"
+OutputPortMap "o0"
+SampleTime "1"
+}
+
+Block {
+BlockType ComplexToRealImag
+Name "d"
+Ports [1, 2]
+}
+
+Block {
+BlockType Sum
+Name "e"
+Ports [2, 1]
+Inputs "-+"
+InputSameDT off
+OutDataTypeStr "Inherit: Inherit via internal rule"
+SaturateOnIntegerOverflow off
+}
+
+Block {
+BlockType Polyval
+Name "f"
+Coefs "[ +2.081618890e-019, -1.441693666e-014, +4.719686976e-010, -8.536869453e-006, +1.621573104e-001, -"
+"8.087801117e+001 ]"
+}
+
+Block {
+BlockType Reference
+Name "g"
+Ports [0, 1]
+LibraryVersion "1.444"
+SourceBlock "simulink/Sources/Repeating\nSequence"
+SourceType "Repeating table"
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+rep_seq_t "[0 2]"
+rep_seq_y "[-50363489.018475, -729599796.641220]"
+}
+
+Block {
+BlockType ComplexToMagnitudeAngle
+Name "h"
+Ports [1, 2]
+}
+
+Block {
+BlockType Reference
+Name "i"
+Ports [2]
+LibraryVersion "1.444"
+SourceBlock "simulink/Sinks/XY Graph"
+SourceType "XY scope."
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+xmin "-1"
+xmax "1"
+ymin "-1"
+ymax "1"
+st "-1"
+}
+
+Block {
+BlockType Reference
+Name "j"
+Ports [1, 1]
+LibraryVersion "1.444"
+SourceBlock "simulink/Discrete/Transfer Fcn\nFirst Order"
+SourceType "First Order Transfer Fcn"
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+PoleZ "0.95"
+ICPrevOutput "0.0"
+RndMeth "Floor"
+DoSatur off
+}
+
+Block {
+BlockType UnitDelay
+Name "k"
+InputProcessing "Elements as channels (sample based)"
+}
+
+Block {
+BlockType Sum
+Name "l"
+Ports [2, 1]
+ShowName off
+IconShape "round"
+Inputs "|++"
+InputSameDT off
+OutDataTypeStr "Inherit: Inherit via internal rule"
+SaturateOnIntegerOverflow off
+}
+
+Block {
+BlockType Sqrt
+Name "m"
+}
+
+Block {
+BlockType Sum
+Name "n"
+Ports [2, 1]
+Inputs "+-"
+InputSameDT off
+OutDataTypeStr "Inherit: Inherit via internal rule"
+SaturateOnIntegerOverflow off
+}
+
+Block {
+BlockType ComplexToMagnitudeAngle
+Name "o"
+Ports [1, 2]
+}
+
+Block {
+BlockType DiscreteIntegrator
+Name "p"
+Ports [1, 1]
+InitialConditionSetting "Auto"
+ICPrevOutput "DiscIntNeverNeededParam"
+ICPrevScaledInput "DiscIntNeverNeededParam"
+}
+
+Block {
+BlockType Squeeze
+Name "q"
+}
+
+Block {
+BlockType RandomNumber
+Name "r"
+Mean "[-65001.872733]"
+Variance "[94147.655898]"
+Seed "[465482205.000000]"
+SampleTime "0.1"
+}
+
+Block {
+BlockType Delay
+Name "s"
+Ports [2, 1]
+InputPortMap "u0,p1"
+DelayLengthSource "Input port"
+SampleTime "1"
+}
+
+Block {
+BlockType Scope
+Name "t"
+Ports [1]
+NumInputPorts "1"
+Floating off
+}
+
+Block {
+BlockType Reference
+Name "u"
+Ports [1, 1]
+LibraryVersion "1.444"
+SourceBlock "simulink/Discrete/Transfer Fcn\nFirst Order"
+SourceType "First Order Transfer Fcn"
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+PoleZ "0.95"
+ICPrevOutput "0.0"
+RndMeth "Floor"
+DoSatur off
+}
+
+Block {
+BlockType Constant
+Name "v"
+Value "[407539190.038385]"
+SampleTime "1"
+}
+
+Block {
+BlockType Reference
+Name "w"
+Ports [2]
+LibraryVersion "1.444"
+SourceBlock "simulink/Sinks/XY Graph"
+SourceType "XY scope."
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+xmin "-1"
+xmax "1"
+ymin "-1"
+ymax "1"
+st "-1"
+}
+
+Block {
+BlockType Sum
+Name "x"
+Ports [1, 1]
+Inputs "+"
+InputSameDT off
+OutDataTypeStr "Inherit: Inherit via internal rule"
+SaturateOnIntegerOverflow off
+}
+
+Block {
+BlockType Reference
+Name "y"
+Ports [0, 1]
+LibraryVersion "1.444"
+SourceBlock "simulink/Sources/Repeating\nSequence"
+SourceType "Repeating table"
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+rep_seq_t "[0 2]"
+rep_seq_y "[-69569916.482394, -13754748.387167]"
+}
+
+Block {
+BlockType Delay
+Name "z"
+Ports [2, 1]
+InputPortMap "u0,e6"
+ShowEnablePort on
+SampleTime "1"
+}
+
+Block {
+BlockType Reference
+Name "aa"
+Ports [2]
+LibraryVersion "1.444"
+SourceBlock "simulink/Sinks/XY Graph"
+SourceType "XY scope."
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+xmin "-1"
+xmax "1"
+ymin "-1"
+ymax "1"
+st "-1"
+}
+
+Block {
+BlockType DataTypeConversion
+Name "ab"
+RndMeth "Floor"
+SaturateOnIntegerOverflow off
+}
+
+Block {
+BlockType DiscreteZeroPole
+Name "ac"
+Poles "[0 0.5]"
+Gain "1"
+}
+
+Block {
+BlockType Product
+Name "ad"
+Ports [2, 1]
+InputSameDT off
+OutDataTypeStr "Inherit: Inherit via internal rule"
+RndMeth "Floor"
+SaturateOnIntegerOverflow off
+}
+
+Block {
+BlockType DataTypeConversion
+Name "ae"
+RndMeth "Floor"
+SaturateOnIntegerOverflow off
+}
+
+Block {
+BlockType Scope
+Name "af"
+Ports [1]
+NumInputPorts "1"
+Floating off
+}
+
+Block {
+BlockType Reference
+Name "ag"
+Ports [2]
+LibraryVersion "1.444"
+SourceBlock "simulink/Sinks/XY Graph"
+SourceType "XY scope."
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+xmin "-1"
+xmax "1"
+ymin "-1"
+ymax "1"
+st "-1"
+}
+
+Block {
+BlockType Reference
+Name "ah"
+Ports [2]
+LibraryVersion "1.444"
+SourceBlock "simulink/Sinks/XY Graph"
+SourceType "XY scope."
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+xmin "-1"
+xmax "1"
+ymin "-1"
+ymax "1"
+st "-1"
+}
+
+Block {
+BlockType Sqrt
+Name "ai"
+Operator "rSqrt"
+AlgorithmType "Newton-Raphson"
+}
+
+Block {
+BlockType DiscreteStateSpace
+Name "aj"
+}
+
+Block {
+BlockType Reference
+Name "ak"
+Ports [0, 1]
+LibraryVersion "1.444"
+SourceBlock "simulink/Sources/Repeating\nSequence\nStair"
+SourceType "Repeating Sequence Stair"
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+OutValues "[396388417.641686, -624103095.641503]"
+tsamp "-1"
+OutMin "[]"
+OutMax "[]"
+OutDataTypeStr "double"
+OutputDataTypeScalingMode "double"
+OutDataType "fixdt(0,8)"
+ConRadixGroup "Best Precision: Vector-wise"
+OutScaling "2^-12"
+LockScale off
+}
+
+Block {
+BlockType Terminator
+Name "al"
+}
+
+Block {
+BlockType Product
+Name "am"
+Ports [2]
+Inputs "**"
+InputSameDT off
+OutDataTypeStr "Inherit: Inherit via internal rule"
+RndMeth "Floor"
+SaturateOnIntegerOverflow off
+}
+
+Block {
+BlockType Step
+Name "ao"
+Time "[45.000000]"
+Before "[5579.975009]"
+After "[9121083.072198]"
+SampleTime "0"
+}
+
+Block {
+BlockType Scope
+Name "ap"
+Ports [1]
+NumInputPorts "1"
+Floating off
+}
+
+Block {
+BlockType Reference
+Name "aq"
+Ports [0, 1]
+LibraryVersion "1.444"
+SourceBlock "simulink/Sources/Repeating\nSequence\nInterpolated"
+SourceType "Repeating Sequence Interpolated"
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+OutValues "[77004167.821186, 992523270.270429, -719486041.434436, -223539453.899223, -882768629.595141]"
+TimeValues "[0 0.1 0.5 0.6 1].'"
+LookUpMeth "Use Input Below"
+tsamp "0.01"
+OutMin "[]"
+OutMax "[]"
+OutDataTypeStr "double"
+OutputDataTypeScalingMode "double"
+OutDataType "fixdt(0,8)"
+OutScaling "2^-10"
+LockScale off
+}
+
+Block {
+BlockType Rounding
+Name "ar"
+}
+
+Block {
+BlockType DiscreteIntegrator
+Name "as"
+Ports [1, 1]
+InitialConditionSetting "Auto"
+ICPrevOutput "DiscIntNeverNeededParam"
+ICPrevScaledInput "DiscIntNeverNeededParam"
+}
+
+Block {
+BlockType UnitDelay
+Name "at"
+InputProcessing "Elements as channels (sample based)"
+}
+
+Block {
+BlockType Math
+Name "au"
+Ports [2, 1]
+Operator "hypot"
+}
+
+Block {
+BlockType Reference
+Name "av"
+Ports [1, 1]
+LibraryVersion "1.444"
+SourceBlock "simulink/Discrete/Transfer Fcn\nReal Zero"
+SourceType "Transfer Fcn Real Zero"
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+ZeroZ "0.75"
+ICPrevInput "0.0"
+InputProcessing "Elements as channels (sample based)"
+RndMeth "Floor"
+DoSatur off
+}
+
+Block {
+BlockType Constant
+Name "aw"
+Value "[264465416.923712]"
+SampleTime "1"
+}
+
+Block {
+BlockType Reference
+Name "ax"
+Ports [0, 1]
+LibraryVersion "1.444"
+SourceBlock "simulink/Sources/Ramp"
+SourceType "Ramp"
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+slope "[-1397.017732]"
+start "[47.513306]"
+InitialOutput "[326808.506616]"
+VectorParams1D on
+}
+
+Block {
+BlockType DiscreteIntegrator
+Name "ay"
+Ports [1, 1]
+InitialConditionSetting "Auto"
+ICPrevOutput "DiscIntNeverNeededParam"
+ICPrevScaledInput "DiscIntNeverNeededParam"
+}
+
+Block {
+BlockType DiscreteFir
+Name "bz"
+Ports [1, 1]
+InputPortMap "u0"
+OutputPortMap "o0"
+SampleTime "1"
+}
+
+Block {
+BlockType Scope
+Name "ba"
+Ports [1]
+NumInputPorts "1"
+Floating off
+}
+
+Block {
+BlockType Scope
+Name "bb"
+Ports []
+NumInputPorts "1"
+Floating on
+}
+
+Block {
+BlockType Outport
+Name "an"
+Port "2"
+IconDisplay "Port number"
+}
+
+Line {
+SrcBlock "a"
+SrcPort 1
+DstBlock "b"
+DstPort 1
+}
+
+Line {
+SrcBlock "b"
+SrcPort 1
+DstBlock "c"
+DstPort 1
+}
+
+Line {
+SrcBlock "d"
+SrcPort 1
+DstBlock "b"
+DstPort 2
+}
+
+Line {
+SrcBlock "d"
+SrcPort 2
+DstBlock "f"
+DstPort 1
+}
+
+Line {
+SrcBlock "c"
+SrcPort 1
+DstBlock "e"
+DstPort 1
+}
+
+Line {
+SrcBlock "e"
+SrcPort 1
+DstBlock "d"
+DstPort 1
+}
+
+Line {
+SrcBlock "g"
+SrcPort 1
+DstBlock "e"
+DstPort 2
+}
+
+Line {
+SrcBlock "f"
+SrcPort 1
+DstBlock "h"
+DstPort 1
+}
+
+Line {
+SrcBlock "h"
+SrcPort 1
+DstBlock "i"
+DstPort 1
+}
+
+Line {
+SrcBlock "h"
+SrcPort 2
+DstBlock "j"
+DstPort 1
+}
+
+Line {
+SrcBlock "k"
+SrcPort 1
+DstBlock "i"
+DstPort 2
+}
+
+Line {
+SrcBlock "j"
+SrcPort 1
+DstBlock "l"
+DstPort 1
+}
+
+Line {
+SrcBlock "m"
+SrcPort 1
+DstBlock "k"
+DstPort 1
+}
+
+Line {
+SrcBlock "n"
+SrcPort 1
+DstBlock "k"
+DstPort 2
+}
+
+Line {
+SrcBlock "l"
+SrcPort 1
+DstBlock "o"
+DstPort 1
+}
+
+Line {
+SrcBlock "p"
+SrcPort 1
+DstBlock "l"
+DstPort 2
+}
+
+Line {
+SrcBlock "q"
+SrcPort 1
+DstBlock "m"
+DstPort 1
+}
+
+Line {
+SrcBlock "r"
+SrcPort 1
+DstBlock "n"
+DstPort 1
+}
+
+Line {
+SrcBlock "s"
+SrcPort 1
+DstBlock "n"
+DstPort 2
+}
+
+Line {
+SrcBlock "o"
+SrcPort 1
+DstBlock "t"
+DstPort 1
+}
+
+Line {
+SrcBlock "o"
+SrcPort 2
+DstBlock "u"
+DstPort 1
+}
+
+Line {
+SrcBlock "v"
+SrcPort 1
+DstBlock "p"
+DstPort 1
+}
+
+Line {
+SrcBlock "x"
+SrcPort 1
+DstBlock "q"
+DstPort 1
+}
+
+Line {
+SrcBlock "y"
+SrcPort 1
+DstBlock "s"
+DstPort 1
+}
+
+Line {
+SrcBlock "z"
+SrcPort 1
+DstBlock "s"
+DstPort 2
+}
+
+Line {
+SrcBlock "z"
+SrcPort 1
+Branch {
+DstBlock "ab"
+DstPort 2
+}
+Branch {
+DstBlock "ac"
+DstPort 1
+}
+}
+
+Line {
+SrcBlock "u"
+SrcPort 1
+DstBlock "aa"
+DstPort 1
+}
+
+Line {
+SrcBlock "ad"
+SrcPort 1
+DstBlock "x"
+DstPort 1
+}
+
+Line {
+SrcBlock "ae"
+SrcPort 1
+DstBlock "z"
+DstPort 1
+}
+
+Line {
+SrcBlock "af"
+SrcPort 1
+DstBlock "z"
+DstPort 2
+}
+
+Line {
+SrcBlock "ak"
+SrcPort 1
+DstBlock "aa"
+DstPort 2
+}
+
+Line {
+SrcBlock "ab"
+SrcPort 1
+DstBlock "al"
+DstPort 1
+}
+
+Line {
+SrcBlock "ac"
+SrcPort 1
+DstBlock "an"
+DstPort 1
+}
+
+Line {
+SrcBlock "ao"
+SrcPort 1
+Branch {
+DstBlock "ad"
+DstPort 2
+}
+Branch {
+DstBlock "at"
+DstPort 1
+}
+}
+
+Line {
+SrcBlock "ao"
+SrcPort 1
+DstBlock "ap"
+DstPort 1
+}
+
+Line {
+SrcBlock "ar"
+SrcPort 1
+DstBlock "ad"
+DstPort 1
+}
+
+Line {
+SrcBlock "ar"
+SrcPort 1
+DstBlock "as"
+DstPort 1
+}
+
+Line {
+SrcBlock "as"
+SrcPort 1
+DstBlock "ae"
+DstPort 1
+}
+
+Line {
+SrcBlock "as"
+SrcPort 1
+DstBlock "at"
+DstPort 1
+}
+
+Line {
+SrcBlock "at"
+SrcPort 1
+DstBlock "ag"
+DstPort 2
+}
+
+Line {
+SrcBlock "at"
+SrcPort 1
+DstBlock "au"
+DstPort 1
+}
+
+Line {
+SrcBlock "au"
+SrcPort 1
+DstBlock "ah"
+DstPort 1
+}
+
+Line {
+SrcBlock "au"
+SrcPort 1
+DstBlock "av"
+DstPort 1
+}
+
+Line {
+SrcBlock "aj"
+SrcPort 1
+DstBlock "av"
+DstPort 1
+}
+
+Line {
+SrcBlock "am"
+SrcPort 1
+DstBlock "an"
+DstPort 1
+}
+
+Line {
+SrcBlock "aq"
+SrcPort 1
+DstBlock "ar"
+DstPort 1
+}
+
+Line {
+SrcBlock "aw"
+SrcPort 1
+DstBlock "au"
+DstPort 2
+}
+
+Line {
+SrcBlock "av"
+SrcPort 1
+DstBlock "aw"
+DstPort 1
+}
+
+Line {
+SrcBlock "ax"
+SrcPort 1
+DstBlock "ay"
+DstPort 1
+}
+
+Line {
+SrcBlock "ay"
+SrcPort 1
+DstBlock "bz"
+DstPort 1
+}
+
+Line {
+SrcBlock "bz"
+SrcPort 1
+DstBlock "ba"
+DstPort 1
+}
+
+}
+}

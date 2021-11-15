@@ -1,0 +1,610 @@
+Model {
+  Name			  "sampleModel993"
+  System {
+    Name		    "sampleModel993"
+    Location		    [93, 84, 907, 617]
+    SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
+    Open		    on
+    PortBlocksUseCompactNotation off
+    SetExecutionDomain	    off
+    ExecutionDomainType	    "Deduce"
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    "21"
+    SimulinkSubDomain	    "Simulink"
+    Block {
+      BlockType		      DiscreteIntegrator
+      Name		      "cfblk1"
+      SID		      "1"
+      Ports		      [1, 1]
+      Position		      [30, 30, 90, 90]
+      ZOrder		      1
+      InitialConditionSetting "Auto"
+      ICPrevOutput	      "DiscIntNeverNeededParam"
+      ICPrevScaledInput	      "DiscIntNeverNeededParam"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "cfblk2"
+      SID		      "2"
+      Ports		      [1, 1]
+      Position		      [190, 30, 250, 90]
+      ZOrder		      2
+      LibraryVersion	      "1.480"
+      SourceBlock	      "simulink/Discrete/Transfer Fcn\nLead or Lag"
+      SourceType	      "Lead or Lag Compensator"
+      SourceProductBaseCode   "SL"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      ContentPreviewEnabled   off
+      PoleZ		      "0.95"
+      ZeroZ		      "0.75"
+      ICPrevOutput	      "0.0"
+      ICPrevInput	      "0.0"
+      RndMeth		      "Floor"
+      DoSatur		      off
+    }
+    Block {
+      BlockType		      Trigonometry
+      Name		      "cfblk3"
+      SID		      "3"
+      Ports		      [1, 1]
+      Position		      [350, 30, 410, 90]
+      ZOrder		      3
+    }
+    Block {
+      BlockType		      Assignment
+      Name		      "cfblk4"
+      SID		      "4"
+      Ports		      [2, 1]
+      Position		      [510, 30, 570, 90]
+      ZOrder		      4
+      DiagnosticForDimensions "Warning"
+      IndexOptions	      "Index vector (dialog)"
+      Indices		      "1"
+      OutputSizes	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "cfblk5"
+      SID		      "5"
+      Ports		      [0, 1]
+      Position		      [670, 30, 730, 90]
+      ZOrder		      5
+      LibraryVersion	      "1.480"
+      SourceBlock	      "simulink/Sources/Ramp"
+      SourceType	      "Ramp"
+      SourceProductBaseCode   "SL"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      ContentPreviewEnabled   off
+      slope		      "[3119.147453]"
+      start		      "[41.194262]"
+      InitialOutput	      "[782812.089512]"
+      VectorParams1D	      on
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "cfblk6"
+      SID		      "6"
+      Position		      [830, 30, 890, 90]
+      ZOrder		      6
+      Value		      "[-279403379.150013]"
+      SampleTime	      "1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "cfblk7"
+      SID		      "7"
+      Position		      [990, 30, 1050, 90]
+      ZOrder		      7
+      Value		      "[-186411684.837268]"
+      SampleTime	      "1"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "cfblk8"
+      SID		      "8"
+      Ports		      [2, 1]
+      Position		      [1150, 30, 1210, 90]
+      ZOrder		      8
+      RequestExecContextInheritance off
+      ContentPreviewEnabled   on
+      System {
+	Name			"cfblk8"
+	Location		[433, 403, 931, 703]
+	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
+	Open			off
+	PortBlocksUseCompactNotation off
+	SetExecutionDomain	off
+	ExecutionDomainType	"Deduce"
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SimulinkSubDomain	"Simulink"
+	Block {
+	  BlockType		  Inport
+	  Name			  "cfblk1"
+	  SID			  "9"
+	  Position		  [30, 30, 90, 90]
+	  ZOrder		  -1
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "cfblk11"
+	  SID			  "19"
+	  Position		  [30, 180, 90, 240]
+	  ZOrder		  9
+	  Port			  "2"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "cfblk10"
+	  SID			  "18"
+	  Position		  [1470, 30, 1530, 90]
+	  ZOrder		  8
+	  Value			  "[-547611752.804550]"
+	  SampleTime		  "1"
+	}
+	Block {
+	  BlockType		  Delay
+	  Name			  "cfblk12"
+	  SID			  "20"
+	  Ports			  [1, 1]
+	  Position		  [190, 180, 250, 240]
+	  ZOrder		  10
+	  InputPortMap		  "u0"
+	  SampleTime		  "1"
+	}
+	Block {
+	  BlockType		  Delay
+	  Name			  "cfblk3"
+	  SID			  "11"
+	  Ports			  [1, 1]
+	  Position		  [350, 30, 410, 90]
+	  ZOrder		  1
+	  InputPortMap		  "u0"
+	  SampleTime		  "1"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "cfblk4"
+	  SID			  "12"
+	  Ports			  [2, 1]
+	  Position		  [510, 30, 570, 90]
+	  ZOrder		  2
+	  LibraryVersion	  "1.441"
+	  SourceBlock		  "simulink/Continuous/PID Controller (2DOF)"
+	  SourceType		  "PID 2dof"
+	  SourceProductBaseCode	  "SL"
+	  ContentPreviewEnabled	  off
+	  Controller		  PID
+	  TimeDomain		  "Discrete-time"
+	  SampleTime		  1
+	  IntegratorMethod	  "Forward Euler"
+	  FilterMethod		  "Forward Euler"
+	  Form			  Parallel
+	  UseFilter		  on
+	  ControllerParametersSource internal
+	  P			  1
+	  I			  1
+	  D			  0
+	  N			  100
+	  b			  1
+	  c			  1
+	  InitialConditionSource  internal
+	  InitialConditionForIntegrator	0
+	  InitialConditionForFilter 0
+	  ExternalReset		  none
+	  IgnoreLimit		  off
+	  ZeroCross		  on
+	  LimitOutput		  off
+	  UpperSaturationLimit	  inf
+	  LowerSaturationLimit	  "-inf"
+	  LinearizeAsGain	  off
+	  AntiWindupMode	  none
+	  Kb			  1
+	  TrackingMode		  off
+	  Kt			  1
+	  RndMeth		  Floor
+	  SaturateOnIntegerOverflow off
+	  LockScale		  off
+	  PParamMin		  []
+	  PParamMax		  []
+	  PParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  IParamMin		  []
+	  IParamMax		  []
+	  IParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  DParamMin		  []
+	  DParamMax		  []
+	  DParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  NParamMin		  []
+	  NParamMax		  []
+	  NParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  bParamMin		  []
+	  bParamMax		  []
+	  bParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  cParamMin		  []
+	  cParamMax		  []
+	  cParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  KbParamMin		  []
+	  KbParamMax		  []
+	  KbParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  KtParamMin		  []
+	  KtParamMax		  []
+	  KtParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  POutMin		  []
+	  POutMax		  []
+	  POutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  PGainOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  PProdOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  IOutMin		  []
+	  IOutMax		  []
+	  IOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  IGainOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  IProdOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  DOutMin		  []
+	  DOutMax		  []
+	  DOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  DGainOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  DProdOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  NOutMin		  []
+	  NOutMax		  []
+	  NOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  NGainOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  NProdOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  bOutMin		  []
+	  bOutMax		  []
+	  bOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  bGainOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  bProdOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  cOutMin		  []
+	  cOutMax		  []
+	  cOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  cGainOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  cProdOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  KbOutMin		  []
+	  KbOutMax		  []
+	  KbOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  KtOutMin		  []
+	  KtOutMax		  []
+	  KtOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  IntegratorOutMin	  []
+	  IntegratorOutMax	  []
+	  IntegratorOutDataTypeStr "Inherit: Inherit via internal rule"
+	  FilterOutMin		  []
+	  FilterOutMax		  []
+	  FilterOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumOutMin		  []
+	  SumOutMax		  []
+	  SumOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  Sum1OutMin		  []
+	  Sum1OutMax		  []
+	  Sum1OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  Sum2OutMin		  []
+	  Sum2OutMax		  []
+	  Sum2OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  Sum3OutMin		  []
+	  Sum3OutMax		  []
+	  Sum3OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumI1OutMin		  []
+	  SumI1OutMax		  []
+	  SumI1OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumI2OutMin		  []
+	  SumI2OutMax		  []
+	  SumI2OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumI3OutMin		  []
+	  SumI3OutMax		  []
+	  SumI3OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumDOutMin		  []
+	  SumDOutMax		  []
+	  SumDOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumAccumDataTypeStr	  "Inherit: Inherit via internal rule"
+	  Sum1AccumDataTypeStr	  "Inherit: Inherit via internal rule"
+	  Sum2AccumDataTypeStr	  "Inherit: Inherit via internal rule"
+	  Sum3AccumDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumI1AccumDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumI2AccumDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumI3AccumDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumDAccumDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturationOutMin	  []
+	  SaturationOutMax	  []
+	  SaturationOutDataTypeStr "Inherit: Same as input"
+	  IntegratorContinuousStateAttributes "''"
+	  IntegratorStateMustResolveToSignalObject off
+	  IntegratorRTWStateStorageClass Auto
+	  FilterContinuousStateAttributes "''"
+	  FilterStateMustResolveToSignalObject off
+	  FilterRTWStateStorageClass Auto
+	  DifferentiatorICPrevScaledInput 0
+	  DifferentiatorOutMin	  []
+	  DifferentiatorOutMax	  []
+	  DifferentiatorOutDataTypeStr "Inherit: Inherit via internal rule"
+	  InitialConditionSetting Auto
+	  FilterDiffNumProductOutputDataTypeStr	"Inherit: Inherit via internal rule"
+	  FilterDiffDenProductOutputDataTypeStr	"Inherit: Inherit via internal rule"
+	  FilterDiffNumAccumDataTypeStr	"Inherit: Inherit via internal rule"
+	  FilterDiffDenAccumDataTypeStr	"Inherit: Inherit via internal rule"
+	  FilterDiffOutCoefMin	  []
+	  FilterDiffOutCoefMax	  []
+	  FilterDiffOutCoefDataTypeStr "Inherit: Inherit via internal rule"
+	  SumDenAccumDataTypeStr  "Inherit: Inherit via internal rule"
+	  SumDenOutMin		  []
+	  SumDenOutMax		  []
+	  SumDenOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumNumAccumDataTypeStr  "Inherit: Inherit via internal rule"
+	  SumNumOutMin		  []
+	  SumNumOutMax		  []
+	  SumNumOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  ReciprocalOutMin	  []
+	  ReciprocalOutMax	  []
+	  ReciprocalOutDataTypeStr "Inherit: Inherit via internal rule"
+	  DivideOutMin		  []
+	  DivideOutMax		  []
+	  DivideOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  TunerSelectOption	  "Transfer Function Based (PID Tuner App)"
+	}
+	Block {
+	  BlockType		  UnitDelay
+	  Name			  "cfblk5"
+	  SID			  "13"
+	  Position		  [670, 30, 730, 90]
+	  ZOrder		  3
+	  HasFrameUpgradeWarning  on
+	}
+	Block {
+	  BlockType		  Delay
+	  Name			  "cfblk6"
+	  SID			  "14"
+	  Ports			  [2, 1]
+	  Position		  [830, 30, 890, 90]
+	  ZOrder		  4
+	  InputPortMap		  "u0,e6"
+	  ShowEnablePort	  on
+	  SampleTime		  "1"
+	}
+	Block {
+	  BlockType		  Polyval
+	  Name			  "cfblk7"
+	  SID			  "15"
+	  Position		  [990, 30, 1050, 90]
+	  ZOrder		  5
+	  Coefs			  "[ +2.081618890e-019, -1.441693666e-014, +4.719686976e-010, -8.536869453e-006, +1.621573104e-001, -8.0878"
+	  "01117e+001 ]"
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "cfblk8"
+	  SID			  "16"
+	  Ports			  [2, 1]
+	  Position		  [1150, 30, 1210, 90]
+	  ZOrder		  6
+	  Inputs		  "**"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "cfblk9"
+	  SID			  "17"
+	  Ports			  [2, 1]
+	  Position		  [1310, 30, 1370, 90]
+	  ZOrder		  7
+	  IconShape		  "rectangular"
+	  Inputs		  "-+"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "cfblk2"
+	  SID			  "10"
+	  Position		  [190, 30, 250, 90]
+	  ZOrder		  -2
+	  VectorParamsAs1DForOutWhenUnconnected	off
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "cfblk6"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  Branch {
+	    ZOrder		    2
+	    Points		    [0, -35; -400, 0]
+	    DstBlock		    "cfblk4"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    15
+	    Points		    [0, -35; -560, 0]
+	    DstBlock		    "cfblk3"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  12
+	  SrcBlock		  "cfblk10"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  Branch {
+	    ZOrder		    3
+	    Points		    [0, 35; -1040, 0]
+	    DstBlock		    "cfblk4"
+	    DstPort		    2
+	  }
+	  Branch {
+	    ZOrder		    13
+	    Points		    [0, 35; -240, 0]
+	    DstBlock		    "cfblk9"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "cfblk8"
+	  SrcPort		  1
+	  Points		  [0, -35; -560, 0]
+	  DstBlock		  "cfblk5"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  5
+	  SrcBlock		  "cfblk3"
+	  SrcPort		  1
+	  Points		  [0, -35; -240, 0]
+	  DstBlock		  "cfblk2"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  7
+	  SrcBlock		  "cfblk11"
+	  SrcPort		  1
+	  Points		  [390, 0; 0, -195; 810, 0]
+	  DstBlock		  "cfblk9"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  8
+	  SrcBlock		  "cfblk4"
+	  SrcPort		  1
+	  Points		  [75, 0; 0, -35; 325, 0]
+	  DstBlock		  "cfblk7"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  9
+	  SrcBlock		  "cfblk9"
+	  SrcPort		  1
+	  Points		  [0, -35; -560, 0]
+	  DstBlock		  "cfblk6"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  10
+	  SrcBlock		  "cfblk1"
+	  SrcPort		  1
+	  Points		  [75, 0; 0, 35; 645, 0]
+	  DstBlock		  "cfblk6"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  11
+	  SrcBlock		  "cfblk7"
+	  SrcPort		  1
+	  Points		  [40, 0; 0, 15]
+	  DstBlock		  "cfblk8"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  16
+	  SrcBlock		  "cfblk5"
+	  SrcPort		  1
+	  Points		  [0, 115; -560, 0]
+	  DstBlock		  "cfblk12"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  17
+	  SrcBlock		  "cfblk12"
+	  SrcPort		  1
+	  Points		  [875, 0; 0, -165]
+	  DstBlock		  "cfblk8"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Delay
+      Name		      "cfblk9"
+      SID		      "21"
+      Ports		      [1, 1]
+      Position		      [1310, 30, 1370, 90]
+      ZOrder		      9
+      InputPortMap	      "u0"
+      SampleTime	      "1"
+    }
+    Line {
+      ZOrder		      1
+      SrcBlock		      "cfblk5"
+      SrcPort		      1
+      Points		      [0, -35; -720, 0]
+      DstBlock		      "cfblk1"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      2
+      SrcBlock		      "cfblk4"
+      SrcPort		      1
+      Points		      [0, 35; -240, 0]
+      DstBlock		      "cfblk3"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      3
+      SrcBlock		      "cfblk7"
+      SrcPort		      1
+      Points		      [0, 45; -880, 0]
+      DstBlock		      "cfblk2"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      4
+      SrcBlock		      "cfblk2"
+      SrcPort		      1
+      Points		      [75, 0; 0, -35; 165, 0]
+      DstBlock		      "cfblk4"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      6
+      SrcBlock		      "cfblk3"
+      SrcPort		      1
+      Points		      [75, 0; 0, -35; 645, 0]
+      DstBlock		      "cfblk8"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      7
+      SrcBlock		      "cfblk6"
+      SrcPort		      1
+      Points		      [90, 0; 0, 35; 150, 0]
+      DstBlock		      "cfblk8"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      8
+      SrcBlock		      "cfblk8"
+      SrcPort		      1
+      DstBlock		      "cfblk9"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      9
+      SrcBlock		      "cfblk9"
+      SrcPort		      1
+      Points		      [0, 35; -880, 0]
+      DstBlock		      "cfblk4"
+      DstPort		      2
+    }
+  }
+}

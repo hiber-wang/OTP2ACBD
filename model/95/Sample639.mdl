@@ -1,0 +1,241 @@
+Model {
+  Name			  "sampleModel5"
+  System {
+    Name		    "sampleModel5"
+    Location		    [93, 84, 907, 617]
+    SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
+    Open		    on
+    PortBlocksUseCompactNotation off
+    SetExecutionDomain	    off
+    ExecutionDomainType	    "Deduce"
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    "9"
+    SimulinkSubDomain	    "Simulink"
+    Block {
+      BlockType		      Reference
+      Name		      "cfblk1"
+      SID		      "1"
+      Ports		      [1, 1]
+      Position		      [30, 30, 90, 90]
+      ZOrder		      1
+      LibraryVersion	      "1.480"
+      SourceBlock	      "simulink/Discrete/Transfer Fcn\nLead or Lag"
+      SourceType	      "Lead or Lag Compensator"
+      SourceProductBaseCode   "SL"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      ContentPreviewEnabled   off
+      PoleZ		      "0.95"
+      ZeroZ		      "0.75"
+      ICPrevOutput	      "0.0"
+      ICPrevInput	      "0.0"
+      RndMeth		      "Floor"
+      DoSatur		      off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "cfblk2"
+      SID		      "2"
+      Ports		      [2, 1]
+      Position		      [190, 30, 250, 90]
+      ZOrder		      2
+      LibraryVersion	      "1.480"
+      SourceBlock	      "simulink/Math\nOperations/MinMax\nRunning\nResettable"
+      SourceType	      "MinMax Running Resettable"
+      SourceProductBaseCode   "SL"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      ContentPreviewEnabled   off
+      Function		      "min"
+      vinit		      "0.0"
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "cfblk3"
+      SID		      "3"
+      Ports		      [2, 1]
+      Position		      [350, 30, 410, 90]
+      ZOrder		      3
+      ShowName		      off
+      Inputs		      "|++"
+    }
+    Block {
+      BlockType		      MinMax
+      Name		      "cfblk4"
+      SID		      "4"
+      Ports		      [1, 1]
+      Position		      [510, 30, 570, 90]
+      ZOrder		      4
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "cfblk5"
+      SID		      "5"
+      Ports		      [1]
+      Position		      [670, 30, 730, 90]
+      ZOrder		      5
+      VariableName	      "uyirlvt"
+      MaxDataPoints	      "inf"
+      SaveFormat	      "Timeseries"
+      FixptAsFi		      on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "cfblk6"
+      SID		      "6"
+      Ports		      [1]
+      Position		      [830, 30, 890, 90]
+      ZOrder		      6
+      VariableName	      "ewznwpe"
+      MaxDataPoints	      "inf"
+      SaveFormat	      "Timeseries"
+      FixptAsFi		      on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "cfblk7"
+      SID		      "7"
+      Ports		      [2]
+      Position		      [990, 30, 1050, 90]
+      ZOrder		      7
+      LibraryVersion	      "1.480"
+      SourceBlock	      "simulink/Sinks/XY Graph"
+      SourceType	      "XY scope."
+      SourceProductBaseCode   "SL"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      ContentPreviewEnabled   off
+      xmin		      "-1"
+      xmax		      "1"
+      ymin		      "-1"
+      ymax		      "1"
+      st		      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "cfblk8"
+      SID		      "8"
+      Position		      [1150, 30, 1210, 90]
+      ZOrder		      8
+      Value		      "[-600274354.285096]"
+      SampleTime	      "1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "cfblk9"
+      SID		      "9"
+      Position		      [1310, 30, 1370, 90]
+      ZOrder		      9
+      Value		      "[497411436.431383]"
+      SampleTime	      "1"
+    }
+    Line {
+      ZOrder		      1
+      SrcBlock		      "cfblk2"
+      SrcPort		      1
+      Points		      [85, 0; 0, -35; 475, 0]
+      DstBlock		      "cfblk6"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      2
+      SrcBlock		      "cfblk1"
+      SrcPort		      1
+      Points		      [85, 0; 0, 40; 315, 0]
+      DstBlock		      "cfblk4"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      3
+      SrcBlock		      "cfblk3"
+      SrcPort		      1
+      Points		      [0, -35; -400, 0]
+      DstBlock		      "cfblk1"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      9
+      SrcBlock		      "cfblk8"
+      SrcPort		      1
+      Points		      [0, 35; -240, 0]
+      Branch {
+	ZOrder			4
+	Points			[-320, 0]
+	DstBlock		"cfblk5"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			10
+	DstBlock		"cfblk7"
+	DstPort			2
+      }
+    }
+    Line {
+      ZOrder		      7
+      SrcBlock		      "cfblk4"
+      SrcPort		      1
+      Points		      [0, 0]
+      Branch {
+	ZOrder			5
+	Points			[0, -35; -400, 0]
+	DstBlock		"cfblk2"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			8
+	Points			[75, 0; 0, -35; 325, 0]
+	DstBlock		"cfblk7"
+	DstPort			1
+      }
+    }
+    Line {
+      ZOrder		      11
+      SrcBlock		      "cfblk9"
+      SrcPort		      1
+      Points		      [0, 0]
+      Branch {
+	ZOrder			19
+	Points			[0, 45]
+	Branch {
+	  ZOrder		  6
+	  Points		  [0, 5; -1200, 0]
+	  DstBlock		  "cfblk2"
+	  DstPort		  2
+	}
+	Branch {
+	  ZOrder		  13
+	  DstBlock		  "cfblk3"
+	  DstPort		  2
+	}
+      }
+      Branch {
+	ZOrder			12
+	Points			[0, -35; -1040, 0]
+	DstBlock		"cfblk3"
+	DstPort			1
+      }
+    }
+  }
+}

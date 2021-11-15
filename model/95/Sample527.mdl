@@ -1,0 +1,132 @@
+Model {
+Name "sample"
+System {
+Name "sample"
+SystemRect [0.000000, 0.000000, 0.000000, 0.000000]
+SetExecutionDomain	off
+ExecutionDomainType	"Deduce"
+SimulinkSubDomain	"Simulink"
+Block {
+BlockType Inport
+Name "a"
+SID "9"
+}
+Block {
+BlockType Inport
+Name "m"
+SID "13"
+Port "2"
+}
+Block {
+BlockType Inport
+Name "n"
+SID "14"
+Port "3"
+}
+Block {
+BlockType Inport
+Name "i"
+SID "20"
+Port "3"
+}
+Block {
+BlockType Inport
+Name "l"
+SID "21"
+Port "4"
+}
+Block {
+BlockType Delay
+Name "d"
+SID "11"
+Ports [2, 1]
+InputPortMap "u0,e6"
+ShowEnablePort on
+SampleTime "1"
+}
+Block {
+BlockType Sum
+Name "e"
+SID "12"
+Ports [2, 1]
+ShowName off
+Inputs "|++"
+}
+Block {
+BlockType Constant
+Name "f"
+SID "13"
+Value "[-619529726.921519]"
+SampleTime "1"
+}
+Block {
+BlockType Constant
+Name "g"
+SID "14"
+Value "[631192691.521602]"
+SampleTime "1"
+}
+Block {
+BlockType Constant
+Name "h"
+SID "15"
+Value "[-797628298.559225]"
+SampleTime "1"
+}
+Block {
+BlockType Outport
+Name "b"
+SID "9"
+VectorParamsAs1DForOutWhenUnconnected	off
+}
+Block {
+BlockType Outport
+Name "j"
+SID "1"
+Port "2"
+VectorParamsAs1DForOutWhenUnconnected	off
+}
+Line {
+SrcBlock "e"
+SrcPort 1
+DstBlock "d"
+DstPort 1
+}
+Line {
+SrcBlock "e"
+SrcPort 1
+DstBlock "d"
+DstPort 1
+}
+Line {
+SrcBlock "d"
+SrcPort 1
+DstBlock "i"
+DstPort 1
+}
+Line {
+SrcBlock "h"
+SrcPort 1
+DstBlock "d"
+DstPort 1
+}
+Line {
+SrcBlock "a"
+SrcPort 1
+DstBlock "g"
+DstPort 1
+}
+Line {
+SrcBlock "g"
+SrcPort 1
+DstBlock "j"
+DstPort 1
+}
+Line {
+SrcBlock "g"
+SrcPort 1
+DstBlock "b"
+DstPort 1
+}
+}
+}

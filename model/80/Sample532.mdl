@@ -1,0 +1,103 @@
+Model {
+  Name			  "sampleModel756"
+  System {
+    Name		    "sampleModel756"
+    Location		    [93, 84, 907, 617]
+    SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
+    Open		    on
+    PortBlocksUseCompactNotation off
+    SetExecutionDomain	    off
+    ExecutionDomainType	    "Deduce"
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    "6"
+    SimulinkSubDomain	    "Simulink"
+    Block {
+      BlockType		      DiscreteIntegrator
+      Name		      "cfblk1"
+      SID		      "1"
+      Ports		      [1, 1]
+      Position		      [30, 30, 90, 90]
+      ZOrder		      1
+      InitialConditionSetting "Auto"
+      ICPrevOutput	      "DiscIntNeverNeededParam"
+      ICPrevScaledInput	      "DiscIntNeverNeededParam"
+    }
+    Block {
+      BlockType		      Display
+      Name		      "cfblk2"
+      SID		      "2"
+      Ports		      [1]
+      Position		      [190, 30, 250, 90]
+      ZOrder		      2
+      Decimation	      "1"
+    }
+    Block {
+      BlockType		      DiscretePulseGenerator
+      Name		      "cfblk3"
+      SID		      "3"
+      Ports		      [0, 1]
+      Position		      [350, 30, 410, 90]
+      ZOrder		      3
+      PulseType		      "Time based"
+      Amplitude		      "[-54865562.500705]"
+      Period		      "[64244858.940714]"
+      PulseWidth	      "5"
+      PhaseDelay	      "[2.000000]"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "cfblk4"
+      SID		      "4"
+      Position		      [510, 30, 570, 90]
+      ZOrder		      4
+      Value		      "[405685417.873791]"
+      SampleTime	      "1"
+    }
+    Block {
+      BlockType		      SignalGenerator
+      Name		      "cfblk5"
+      SID		      "5"
+      Ports		      [0, 1]
+      Position		      [670, 30, 730, 90]
+      ZOrder		      5
+      WaveForm		      "sawtooth"
+      Amplitude		      "[949737465.962451]"
+      Units		      "rad/sec"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "cfblk6"
+      SID		      "6"
+      Position		      [830, 30, 890, 90]
+      ZOrder		      6
+      Value		      "[633501673.803885]"
+      SampleTime	      "1"
+    }
+    Line {
+      ZOrder		      1
+      SrcBlock		      "cfblk3"
+      SrcPort		      1
+      Points		      [0, -35; -400, 0]
+      DstBlock		      "cfblk1"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      2
+      SrcBlock		      "cfblk1"
+      SrcPort		      1
+      DstBlock		      "cfblk2"
+      DstPort		      1
+    }
+  }
+}

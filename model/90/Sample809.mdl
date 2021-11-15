@@ -1,0 +1,474 @@
+Model {
+Name "sample"
+System {
+Name "sample"
+SystemRect [0.000000, 0.000000, 0.000000, 0.000000]
+SetExecutionDomain off
+ExecutionDomainType "Deduce"
+SIDHighWatermark "1"
+SimulinkSubDomain "Simulink"
+Block {
+BlockType Delay
+Name "a"
+SID "1"
+Ports [1, 1]
+InputPortMap "u0"
+SampleTime "1"
+}
+Block {
+BlockType SubSystem
+Name "b"
+SID "38"
+Ports [2, 1]
+RequestExecContextInheritance off
+System {
+Name "b"
+SystemRect [0.000000, 0.000000, 0.000000, 0.000000]
+SetExecutionDomain	off
+ExecutionDomainType	"Deduce"
+SimulinkSubDomain	"Simulink"
+Block {
+BlockType Inport
+Name "a"
+SID "19"
+}
+Block {
+BlockType Inport
+Name "p"
+SID "26"
+Port "2"
+}
+Block {
+BlockType Inport
+Name "p"
+SID "27"
+Port "3"
+}
+Block {
+BlockType ActionPort
+Name "q" Port"
+SID "20"
+ActionPortLabel "if { }"
+}
+Block {
+BlockType Delay
+Name "m"
+SID "31"
+Ports [1, 1]
+InputPortMap "u0"
+}
+Block {
+BlockType Reference
+Name "d"
+SID "21"
+Ports [1, 1]
+SourceBlock "simulink/Discrete/Tapped Delay"
+MultiThreadCoSim auto
+vinit 0.0
+samptime -1
+NumDelays 1
+includeCurrent off
+}
+Block {
+BlockType Product
+Name "e"
+SID "12"
+Ports [2, 1]
+Inputs "**"
+}
+Block {
+BlockType Rounding
+Name "j"
+SID "13"
+}
+Block {
+BlockType PermuteDimensions
+Name "l"
+SID "14"
+}
+Block {
+BlockType Assignment
+Name "m"
+SID "15"
+Ports [2, 1]
+DiagnosticForDimensions "Warning"
+IndexOptions "Index vector (dialog)"
+Indices "1"
+OutputSizes "1"
+}
+Block {
+BlockType Outport
+Name "g"
+SID "9"
+VectorParamsAs1DForOutWhenUnconnected	off
+}
+Block {
+BlockType Outport
+Name "n"
+SID "18"
+Port "2"
+VectorParamsAs1DForOutWhenUnconnected	off
+}
+Block {
+BlockType Outport
+Name "b"
+SID "19"
+Port "3"
+VectorParamsAs1DForOutWhenUnconnected	off
+}
+Line {
+SrcBlock "k"
+SrcPort 1
+DstBlock "d"
+DstPort 1
+}
+Line {
+SrcBlock "a"
+SrcPort 1
+DstBlock "e"
+DstPort 1
+}
+Line {
+SrcBlock "g"
+SrcPort 1
+DstBlock "f"
+DstPort 1
+}
+Line {
+SrcBlock "j"
+SrcPort 1
+DstBlock "g"
+DstPort 1
+}
+Line {
+SrcBlock "l"
+SrcPort 1
+DstBlock "m"
+DstPort 1
+}
+Line {
+SrcBlock "d"
+SrcPort 1
+DstBlock "i"
+DstPort 1
+}
+Line {
+SrcBlock "f"
+SrcPort 1
+DstBlock "b"
+DstPort 2
+}
+Line {
+SrcBlock "j"
+SrcPort 1
+DstBlock "m"
+DstPort 1
+}
+Line {
+SrcBlock "m"
+SrcPort 1
+DstBlock "i"
+DstPort 1
+}
+}
+}
+Block {
+BlockType SubSystem
+Name "l"
+SID "21"
+Ports [3, 1]
+RequestExecContextInheritance off
+System {
+Name "l"
+SystemRect [0.000000, 0.000000, 0.000000, 0.000000]
+SetExecutionDomain	off
+ExecutionDomainType	"Deduce"
+SimulinkSubDomain	"Simulink"
+Block {
+BlockType Inport
+Name "a"
+SID "10"
+}
+Block {
+BlockType Inport
+Name "b"
+SID "18"
+Port "2"
+}
+Block {
+BlockType Inport
+Name "c"
+SID "19"
+Port "3"
+}
+Block {
+BlockType Inport
+Name "d"
+SID "20"
+Port "4"
+}
+Block {
+BlockType Reference
+Name "e"
+SID "12"
+Ports [1, 1]
+SourceBlock "simulink/Math\nOperations/Slider\nGain"
+gain 1
+low 0
+high 2
+}
+Block {
+BlockType Sum
+Name "f"
+SID "13"
+Ports [1, 1]
+IconShape "rectangular"
+Inputs "+"
+}
+Block {
+BlockType Sqrt
+Name "g"
+SID "14"
+Operator "rSqrt"
+AlgorithmType "Newton-Raphson"
+}
+Block {
+BlockType Constant
+Name "h"
+SID "15"
+Value "[992123869.145897]"
+SampleTime "1"
+}
+Block {
+BlockType Outport
+Name "b"
+SID "9"
+VectorParamsAs1DForOutWhenUnconnected	off
+}
+Block {
+BlockType Outport
+Name "j"
+SID "1"
+Port "2"
+VectorParamsAs1DForOutWhenUnconnected	off
+}
+Line {
+SrcBlock "c"
+SrcPort 1
+DstBlock "d"
+DstPort 1
+}
+Line {
+SrcBlock "a"
+SrcPort 1
+DstBlock "f"
+DstPort 1
+}
+Line {
+SrcBlock "f"
+SrcPort 1
+DstBlock "h"
+DstPort 1
+}
+Line {
+SrcBlock "g"
+SrcPort 1
+DstBlock "e"
+DstPort 1
+}
+Line {
+SrcBlock "h"
+SrcPort 1
+DstBlock "e"
+DstPort 1
+}
+}
+}
+Block {
+BlockType SubSystem
+Name "e"
+SID "12"
+Ports [3, 2]
+RequestExecContextInheritance off
+System {
+Name "e"
+SystemRect [0.000000, 0.000000, 0.000000, 0.000000]
+SetExecutionDomain	off
+ExecutionDomainType	"Deduce"
+SimulinkSubDomain	"Simulink"
+Block {
+BlockType Inport
+Name "a"
+SID "30"
+}
+Block {
+BlockType ActionPort
+Name "n" Port"
+SID "31"
+ActionPortLabel "if { }"
+}
+Block {
+BlockType Product
+Name "g"
+SID "32"
+Ports [1, 1]
+Inputs "*"
+}
+Block {
+BlockType Sum
+Name "h"
+SID "43"
+Ports [2, 1]
+IconShape "rectangular"
+Inputs "+-"
+}
+Block {
+BlockType Constant
+Name "i"
+SID "44"
+Value "[547849519.042371]"
+SampleTime "1"
+}
+Block {
+BlockType Outport
+Name "f"
+SID "38"
+VectorParamsAs1DForOutWhenUnconnected	off
+}
+Block {
+BlockType Outport
+Name "k"
+SID "44"
+Port "2"
+VectorParamsAs1DForOutWhenUnconnected	off
+}
+Line {
+SrcBlock "a"
+SrcPort 1
+DstBlock "f"
+DstPort 1
+}
+Line {
+SrcBlock "g"
+SrcPort 1
+DstBlock "e"
+DstPort 1
+}
+Line {
+SrcBlock "j"
+SrcPort 1
+DstBlock "g"
+DstPort 1
+}
+Line {
+SrcBlock "h"
+SrcPort 1
+DstBlock "i"
+DstPort 1
+}
+Line {
+SrcBlock "a"
+SrcPort 1
+DstBlock "k"
+DstPort 1
+}
+Line {
+SrcBlock "g"
+SrcPort 1
+DstBlock "h"
+DstPort 1
+}
+Line {
+SrcBlock "h"
+SrcPort 1
+DstBlock "l"
+DstPort 1
+}
+Line {
+SrcBlock "l"
+SrcPort 1
+DstBlock "i"
+DstPort 1
+}
+}
+}
+Line {
+SrcBlock "i"
+SrcPort 1
+DstBlock "l"
+DstPort 1
+}
+Line {
+SrcBlock "j"
+SrcPort 1
+DstBlock "h"
+DstPort 1
+}
+Line {
+SrcBlock "g"
+SrcPort 1
+DstBlock "f"
+DstPort 1
+}
+Line {
+SrcBlock "f"
+SrcPort 1
+DstBlock "j"
+DstPort 3
+}
+Line {
+SrcBlock "j"
+SrcPort 2
+Branch {
+DstBlock "i"
+DstPort 3
+}
+Branch {
+DstBlock "g"
+DstPort 1
+}
+}
+Line {
+SrcBlock "h"
+SrcPort 1
+DstBlock "l"
+DstPort 3
+}
+Line {
+SrcBlock "l"
+SrcPort 1
+DstBlock "i"
+DstPort 1
+}
+Line {
+SrcBlock "b"
+SrcPort 1
+DstBlock "a"
+DstPort 1
+}
+Line {
+SrcBlock "c"
+SrcPort 1
+DstBlock "j"
+DstPort 3
+}
+Line {
+SrcBlock "d"
+SrcPort 1
+DstBlock "k"
+DstPort 2
+}
+Line {
+SrcBlock "e"
+SrcPort 1
+DstBlock "m"
+DstPort 1
+}
+Line {
+SrcBlock "m"
+SrcPort 1
+DstBlock "k"
+DstPort 1
+}
+}
+}

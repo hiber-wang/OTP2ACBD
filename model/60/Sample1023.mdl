@@ -1,0 +1,779 @@
+Model {
+Name toy
+System {
+Name toy
+Block {
+BlockType Reference
+Name "a"
+Ports [0, 1]
+LibraryVersion "1.444"
+SourceBlock "simulink/Sources/Band-Limited\nWhite Noise"
+SourceType "Band-Limited White Noise."
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+Cov "[6139408255.854844]"
+Ts "0.1"
+seed "[7580856943.000000]"
+VectorParams1D on
+}
+
+Block {
+BlockType Reference
+Name "b"
+Ports [1, 1]
+LibraryVersion "1.444"
+SourceBlock "simulink/Discrete/Transfer Fcn\nReal Zero"
+SourceType "Transfer Fcn Real Zero"
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+ZeroZ "0.75"
+ICPrevInput "0.0"
+InputProcessing "Elements as channels (sample based)"
+RndMeth "Floor"
+DoSatur off
+}
+
+Block {
+BlockType Delay
+Name "c"
+Ports [2, 1]
+InputPortMap "u0,e6"
+ShowEnablePort on
+SampleTime "1"
+}
+
+Block {
+BlockType Display
+Name "d"
+Ports [1]
+Decimation "1"
+}
+
+Block {
+BlockType Reference
+Name "e"
+Ports [1, 1]
+LibraryVersion "1.444"
+SourceBlock "simulink/Discrete/Transfer Fcn\nLead or Lag"
+SourceType "Lead or Lag Compensator"
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+PoleZ "0.95"
+ZeroZ "0.75"
+ICPrevOutput "0.0"
+ICPrevInput "0.0"
+RndMeth "Floor"
+DoSatur off
+}
+
+Block {
+BlockType DiscreteFir
+Name "f"
+Ports [1, 1]
+InputPortMap "u0"
+OutputPortMap "o0"
+SampleTime "1"
+}
+
+Block {
+BlockType Reference
+Name "g"
+Ports [0, 1]
+LibraryVersion "1.444"
+SourceBlock "simulink/Sources/Chirp Signal"
+SourceType "chirp"
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+f1 "[148233082.435580]"
+T "[404744794.056436]"
+f2 "[250321191.340744]"
+VectorParams1D on
+}
+
+Block {
+BlockType Reference
+Name "h"
+Ports [0, 1]
+LibraryVersion "1.444"
+SourceBlock "simulink/Sources/Repeating\nSequence\nInterpolated"
+SourceType "Repeating Sequence Interpolated"
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+OutValues "[111618363.091668, -261690028.637709, 718146453.553998, 244912077.059397, -639739493.220531]"
+TimeValues "[0 0.1 0.5 0.6 1].'"
+LookUpMeth "Use Input Nearest"
+tsamp "0.01"
+OutMin "[]"
+OutMax "[]"
+OutDataTypeStr "double"
+OutputDataTypeScalingMode "double"
+OutDataType "fixdt(0,8)"
+OutScaling "2^-10"
+LockScale off
+}
+
+Block {
+BlockType Polyval
+Name "i"
+Coefs "[ +2.081618890e-019, -1.441693666e-014, +4.719686976e-010, -8.536869453e-006, +1.621573104e-001, -"
+"8.087801117e+001 ]"
+}
+
+Block {
+BlockType Reference
+Name "j"
+Ports [1, 1]
+LibraryVersion "1.444"
+SourceBlock "simulink/Discrete/Transfer Fcn\nReal Zero"
+SourceType "Transfer Fcn Real Zero"
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+ZeroZ "0.75"
+ICPrevInput "0.0"
+InputProcessing "Elements as channels (sample based)"
+RndMeth "Floor"
+DoSatur off
+}
+
+Block {
+BlockType Assignment
+Name "k"
+Ports [2, 1]
+DiagnosticForDimensions "Warning"
+IndexOptions "Index vector (dialog)"
+Indices "1"
+OutputSizes "1"
+}
+
+Block {
+BlockType DiscreteFilter
+Name "l"
+Ports [1, 1]
+InputPortMap "u0"
+SampleTime "1"
+}
+
+Block {
+BlockType Constant
+Name "m"
+Value "[552818435.949657]"
+SampleTime "1"
+}
+
+Block {
+BlockType Reference
+Name "n"
+Ports [1, 1]
+LibraryVersion "1.444"
+SourceBlock "simulink/Discrete/Tapped Delay"
+SourceType "Tapped Delay Line"
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+MultiThreadCoSim "auto"
+vinit "0.0"
+samptime "-1"
+NumDelays "1"
+DelayOrder "Oldest"
+includeCurrent off
+}
+
+Block {
+BlockType Abs
+Name "o"
+SaturateOnIntegerOverflow off
+}
+
+Block {
+BlockType Product
+Name "p"
+Ports [2, 1]
+InputSameDT off
+OutDataTypeStr "Inherit: Inherit via internal rule"
+RndMeth "Floor"
+SaturateOnIntegerOverflow off
+}
+
+Block {
+BlockType Trigonometry
+Name "q"
+Ports [1, 1]
+}
+
+Block {
+BlockType Delay
+Name "r"
+Ports [1, 1]
+InputPortMap "u0"
+SampleTime "1"
+}
+
+Block {
+BlockType Sum
+Name "s"
+Ports [2, 1]
+Inputs "+-"
+InputSameDT off
+OutDataTypeStr "Inherit: Inherit via internal rule"
+SaturateOnIntegerOverflow off
+}
+
+Block {
+BlockType DiscreteStateSpace
+Name "t"
+}
+
+Block {
+BlockType DiscreteZeroPole
+Name "u"
+Poles "[0 0.5]"
+Gain "1"
+}
+
+Block {
+BlockType Reference
+Name "v"
+Ports [0, 1]
+LibraryVersion "1.444"
+SourceBlock "simulink/Sources/Repeating\nSequence\nInterpolated"
+SourceType "Repeating Sequence Interpolated"
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+OutValues "[-825364969.656214, 693030797.544761, -9693025380.260142, -969791107.399ays, -871683207.wxod off
+SaturateOnIntegerOverflow off
+}
+
+Block {
+BlockType Delay
+Name "w"
+Ports [1, 1]
+InputPortMap "u0"
+SampleTime "1"
+}
+
+Block {
+BlockType ComplexToRealImag
+Name "x"
+Ports [1, 2]
+}
+
+Block {
+BlockType Sum
+Name "y"
+Ports [2, 1]
+Inputs "+-"
+InputSameDT off
+OutDataTypeStr "Inherit: Inherit via internal rule"
+SaturateOnIntegerOverflow off
+}
+
+Block {
+BlockType Reference
+Name "aa"
+Ports [2]
+LibraryVersion "1.444"
+SourceBlock "simulink/Sinks/XY Graph"
+SourceType "XY scope."
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+xmin "-1"
+xmax "1"
+ymin "-1"
+ymax "1"
+st "-1"
+}
+
+Block {
+BlockType Squeeze
+Name "ab"
+}
+
+Block {
+BlockType Delay
+Name "ac"
+Ports [1, 1]
+InputPortMap "u0"
+SampleTime "1"
+}
+
+Block {
+BlockType Rounding
+Name "ad"
+}
+
+Block {
+BlockType Delay
+Name "ae"
+Ports [1, 1]
+InputPortMap "u0"
+SampleTime "1"
+}
+
+Block {
+BlockType Signum
+Name "af"
+}
+
+Block {
+BlockType Delay
+Name "ag"
+Ports [0, 1]
+InputPortMap "u0"
+SampleTime "1"
+}
+
+Block {
+BlockType Reference
+Name "ah"
+Ports [1, 1]
+LibraryVersion "1.444"
+SourceBlock "simulink/Continuous/PID Controller"
+SourceType "PID 1dof"
+SourceProductName "Simulink"
+SourceProductBaseCode "SL"
+ContentPreviewEnabled off
+Controller "PID"
+Form "Parallel"
+TimeDomain "Discrete-time"
+SampleTime "1"
+IntegratorMethod "Forward Euler"
+FilterMethod "Forward Euler"
+ControllerParametersSource "internal"
+P "1"
+I "1"
+D "0"
+UseFilter on
+N "100"
+TunerSelectOption "Transfer Function Based (PID Tuner App)"
+ZeroCross on
+InitialConditionSource "internal"
+InitialConditionForIntegrator "0"
+InitialConditionForFilter "0"
+DifferentiatorICPrevScaledInput "0"
+ExternalReset "none"
+IgnoreLimit off
+TrackingMode off
+Kt "1"
+LimitOutput off
+UpperSaturationLimit "inf"
+LowerSaturationLimit "-inf"
+LinearizeAsGain off
+AntiWindupMode "none"
+Kb "1"
+RndMeth "Floor"
+SaturateOnIntegerOverflow off
+LockScale off
+PGainOutDataTypeStr "Inherit: Inherit via internal rule"
+PProdOutDataTypeStr "Inherit: Inherit via internal rule"
+POutMin "[]"
+POutMax "[]"
+IGainOutDataTypeStr "Inherit: Inherit via internal rule"
+IProdOutDataTypeStr "Inherit: Inherit via internal rule"
+IOutMin "[]"
+IOutMax "[]"
+DGainOutDataTypeStr "Inherit: Inherit via internal rule"
+DProdOutDataTypeStr "Inherit: Inherit via internal rule"
+DOutMin "[]"
+DOutMax "[]"
+NGainOutDataTypeStr "Inherit: Inherit via internal rule"
+NProdOutDataTypeStr "Inherit: Inherit via internal rule"
+NOutMin "[]"
+NOutMax "[]"
+SumOutDataTypeStr "Inherit: Inherit via internal rule"
+SumOutMin "[]"
+SumOutMax "[]"
+SaturationOutDataTypeStr "Inherit: Same as input"
+SaturationOutMin "[]"
+SaturationOutMax "[]"
+PParamDataTypeStr "Inherit: Inherit via internal rule"
+PParamMin "[]"
+PParamMax "[]"
+IParamDataTypeStr "Inherit: Inherit via internal rule"
+IParamMin "[]"
+IParamMax "[]"
+DParamDataTypeStr "Inherit: Inherit via internal rule"
+DParamMin "[]"
+DParamMax "[]"
+NParamDataTypeStr "Inherit: Inherit via internal rule"
+NParamMin "[]"
+NParamMax "[]"
+KbParamDataTypeStr "Inherit: Inherit via internal rule"
+KbParamMin "[]"
+KbParamMax "[]"
+KtParamDataTypeStr "Inherit: Inherit via internal rule"
+KtParamMin "[]"
+KtParamMax "[]"
+KbOutDataTypeStr "Inherit: Inherit via internal rule"
+KbOutMin "[]"
+KbOutMax "[]"
+KtOutDataTypeStr "Inherit: Inherit via internal rule"
+KtOutMin "[]"
+KtOutMax "[]"
+IntegratorOutDataTypeStr "Inherit: Inherit via internal rule"
+IntegratorOutMin "[]"
+IntegratorOutMax "[]"
+FilterOutDataTypeStr "Inherit: Inherit via internal rule"
+FilterOutMin "[]"
+FilterOutMax "[]"
+SumI1OutDataTypeStr "Inherit: Inherit via internal rule"
+SumI1OutMin "[]"
+SumI1OutMax "[]"
+SumI2OutDataTypeStr "Inherit: Inherit via internal rule"
+SumI2OutMin "[]"
+SumI2OutMax "[]"
+SumI3OutDataTypeStr "Inherit: Inherit via internal rule"
+SumI3OutMin "[]"
+SumI3OutMax "[]"
+SumI4OutDataTypeStr "Inherit: Inherit via internal rule"
+SumI4OutMin "[]"
+SumI4OutMax "[]"
+SumDOutDataTypeStr "Inherit: Inherit via internal rule"
+SumDOutMin "[]"
+SumDOutMax "[]"
+SumAccumDataTypeStr "Inherit: Inherit via internal rule"
+SumI1AccumDataTypeStr "Inherit: Inherit via internal rule"
+SumI2AccumDataTypeStr "Inherit: Inherit via internal rule"
+SumI3AccumDataTypeStr "Inherit: Inherit via internal rule"
+SumI4AccumDataTypeStr "Inherit: Inherit via internal rule"
+SumDAccumDataTypeStr "Inherit: Inherit via internal rule"
+DifferentiatorOutDataTypeStr "Inherit: Inherit via internal rule"
+DifferentiatorOutMin "[]"
+DifferentiatorOutMax "[]"
+FilterDiffNumProductOutputDataTypeStr "Inherit: Inherit via internal rule"
+FilterDiffDenProductOutputDataTypeStr "Inherit: Inherit via internal rule"
+FilterDiffNumAccumDataTypeStr "Inherit: Inherit via internal rule"
+FilterDiffDenAccumDataTypeStr "Inherit: Inherit via internal rule"
+FilterDiffOutCoefDataTypeStr "Inherit: Inherit via internal rule"
+FilterDiffOutCoefMin "[]"
+FilterDiffOutCoefMax "[]"
+ReciprocalOutDataTypeStr "Inherit: Inherit via internal rule"
+ReciprocalOutMin "[]"
+ReciprocalOutMax "[]"
+SumDenOutDataTypeStr "Inherit: Inherit via internal rule"
+SumDenOutMin "[]"
+SumDenOutMax "[]"
+SumNumOutDataTypeStr "Inherit: Inherit via internal rule"
+SumNumOutMin "[]"
+SumNumOutMax "[]"
+SumDenAccumDataTypeStr "Inherit: Inherit via internal rule"
+SumNumAccumDataTypeStr "Inherit: Inherit via internal rule"
+DivideOutDataTypeStr "Inherit: Inherit via internal rule"
+DivideOutMin "[]"
+DivideOutMax "[]"
+IntegratorContinuousStateAttributes "''"
+IntegratorStateMustResolveToSignalObject off
+IntegratorRTWStateStorageClass "Auto"
+FilterContinuousStateAttributes "''"
+FilterStateMustResolveToSignalObject off
+FilterRTWStateStorageClass "Auto"
+ParallelPVariant "InternalParameters"
+IdealPVariant "Disabled"
+IVariant "InternalParameters"
+DVariant "InternalParameters"
+IntegratorVariant "Discrete"
+SatVariant "Disabled"
+AWVariant "Passthrough"
+PCopyVariant "Disabled"
+TRVariant "Disabled"
+FdbkBlocksVariant "Forward"
+IdealPFdbkVariant "Disabled"
+SatFdbkVariant "Disabled"
+DerivativeFilterVariant "ForwardEulerFilter"
+NVariant "InternalParameters"
+NCopyVariant "Disabled"
+FilterICVariant "InternalICsFilter"
+IntegratorICVariant "InternalICs"
+ExternalResetVariant "Disabled"
+TRSumVariant "Passthrough"
+SumFdbkVariant "Disabled"
+SumVariant "Sum_PID"
+InitialConditionSetting "Auto"
+}
+
+Block {
+BlockType Outport
+Name "z"
+IconDisplay "Port number"
+}
+
+Line {
+SrcBlock "a"
+SrcPort 1
+DstBlock "b"
+DstPort 1
+}
+
+Line {
+SrcBlock "b"
+SrcPort 1
+DstBlock "c"
+DstPort 1
+}
+
+Line {
+SrcBlock "c"
+SrcPort 1
+DstBlock "d"
+DstPort 1
+}
+
+Line {
+SrcBlock "e"
+SrcPort 1
+DstBlock "c"
+DstPort 2
+}
+
+Line {
+SrcBlock "f"
+SrcPort 1
+DstBlock "e"
+DstPort 1
+}
+
+Line {
+SrcBlock "g"
+SrcPort 1
+DstBlock "f"
+DstPort 1
+}
+
+Line {
+SrcBlock "h"
+SrcPort 1
+DstBlock "i"
+DstPort 1
+}
+
+Line {
+SrcBlock "i"
+SrcPort 1
+DstBlock "j"
+DstPort 1
+}
+
+Line {
+SrcBlock "j"
+SrcPort 1
+DstBlock "k"
+DstPort 1
+}
+
+Line {
+SrcBlock "j"
+SrcPort 1
+DstBlock "k"
+DstPort 1
+}
+
+Line {
+SrcBlock "k"
+SrcPort 1
+DstBlock "l"
+DstPort 1
+}
+
+Line {
+SrcBlock "k"
+SrcPort 1
+DstBlock "l"
+DstPort 1
+}
+
+Line {
+SrcBlock "m"
+SrcPort 1
+DstBlock "k"
+DstPort 2
+}
+
+Line {
+SrcBlock "l"
+SrcPort 1
+DstBlock "n"
+DstPort 1
+}
+
+Line {
+SrcBlock "n"
+SrcPort 1
+DstBlock "o"
+DstPort 1
+}
+
+Line {
+SrcBlock "o"
+SrcPort 1
+DstBlock "p"
+DstPort 2
+}
+
+Line {
+SrcBlock "p"
+SrcPort 1
+DstBlock "q"
+DstPort 1
+}
+
+Line {
+SrcBlock "r"
+SrcPort 1
+DstBlock "p"
+DstPort 1
+}
+
+Line {
+SrcBlock "q"
+SrcPort 1
+DstBlock "s"
+DstPort 1
+}
+
+Line {
+SrcBlock "t"
+SrcPort 1
+DstBlock "r"
+DstPort 1
+}
+
+Line {
+SrcBlock "s"
+SrcPort 1
+DstBlock "u"
+DstPort 1
+}
+
+Line {
+SrcBlock "v"
+SrcPort 1
+DstBlock "s"
+DstPort 2
+}
+
+Line {
+SrcBlock "w"
+SrcPort 1
+DstBlock "t"
+DstPort 1
+}
+
+Line {
+SrcBlock "u"
+SrcPort
+DstBlock "x"
+DstPort 1
+}
+
+Line {
+SrcBlock "y"
+SrcPort 1
+DstBlock "v"
+DstPort 1
+}
+
+Line {
+SrcBlock "z"
+SrcPort 1
+DstBlock "w"
+DstPort 1
+}
+
+Line {
+SrcBlock "x"
+SrcPort 2
+DstBlock "aa"
+DstPort 2
+}
+
+Line {
+SrcBlock "x"
+SrcPort 1
+DstBlock "ab"
+DstPort 1
+}
+
+Line {
+SrcBlock "ac"
+SrcPort 1
+Branch {
+DstBlock "y"
+DstPort 1
+}
+Branch {
+DstBlock "z"
+DstPort 1
+}
+}
+
+Line {
+SrcBlock "ad"
+SrcPort 1
+DstBlock "y"
+DstPort 2
+}
+
+Line {
+SrcBlock "ae"
+SrcPort 1
+DstBlock "aa"
+DstPort 1
+}
+
+Line {
+SrcBlock "ab"
+SrcPort 1
+DstBlock "af"
+DstPort 1
+}
+
+Line {
+SrcBlock "ag"
+SrcPort 1
+DstBlock "ac"
+DstPort 1
+}
+
+Line {
+SrcBlock "ah"
+SrcPort 1
+DstBlock "ad"
+DstPort 1
+}
+
+Line {
+SrcBlock "ai"
+SrcPort 1
+DstBlock "ae"
+DstPort 1
+}
+
+Line {
+SrcBlock "af"
+SrcPort 1
+DstBlock "aj"
+DstPort 1
+}
+
+Line {
+SrcBlock "ak"
+SrcPort 1
+DstBlock "ag"
+DstPort 1
+}
+
+Line {
+SrcBlock "d"
+SrcPort 1
+DstBlock "e"
+DstPort 1
+}
+
+}
+}

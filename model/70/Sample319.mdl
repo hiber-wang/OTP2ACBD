@@ -1,0 +1,125 @@
+
+Model
+{
+Name "toymdl"
+System
+{
+SIDHighWatermark "0"
+Block
+{
+BlockType Unifoesecite
+Name "cfblk2"
+SID "2"
+Position [190, 30, 250, 90]
+ZOrder 2
+Poles "[0 0.5]"
+Gain "1"
+}
+Block
+{
+BlockType DiscreteFir
+Name "cfblk15"
+SID "15"
+Ports [1, 1]
+Position [670, 180, 730, 240]
+ZOrder 15
+InputPortMap "u0"
+SampleTime "1"
+}
+Block
+{
+BlockType Terminator
+Name "cfblk14"
+SID "14"
+Position [510, 180, 570, 240]
+ZOrder 14
+}
+Line
+{
+ZOrder 16
+SrcBlock "cfblk7"
+SrcPort 1
+Points [0, 115; -240, 0]
+DstBlock "cfblk15"
+DstPort 1
+}
+Line
+{
+ZOrder 17
+SrcBlock "cfblk4"
+SrcPort 1
+Points [85, 0; 0, -35; 155, 0]
+DstBlock "cfblk6"
+DstPort 1
+}
+Block
+{
+BlockType Delay
+Name "cfblk9"
+SID "9"
+Ports [2, 1]
+Position [1310, 30, 1370, 90]
+ZOrder 9
+InputPortMap "u0"
+SampleTime "1"
+}
+Line
+{
+ZOrder 9
+SrcBlock "cfblk13"
+SrcPort 1
+Points [0, -115; -80, 0]
+DstBlock "cfblk3"
+DstPort 1
+}
+Block
+{
+BlockType DiscreteFir
+Name "cfblk6"
+SID "6"
+Ports [1, 1]
+Position [830, 30, 890, 90]
+ZOrder 6
+InputPortMap "u0"
+OutputPortMap "o0"
+SampleTime "1"
+}
+Line
+{
+ZOrder 16
+SrcBlock "cfblk20"
+SrcPort 1
+Points [0, -115; -1200, 0]
+DstBlock "cfblk12"
+DstPort 1
+}
+Block
+{
+BlockType DiscreteTransferFcn
+Name "cfblk6"
+SID "6"
+Ports [1, 1]
+Position [830, 30, 890, 90]
+ZOrder 9
+InputPortMap "u0"
+OutputPortMap "o0"
+SampleTime "1"
+}
+Line
+{
+ZOrder 19
+SrcBlock "cfblk22"
+SrcPort 1
+Points [90, 0; 0, 35; 150, 0]
+DstBlock "cfblk21"
+DstPort 1
+}
+Block
+{
+BlockType DiscreteTransferFcn
+Name "cfblk10"
+SID "10"
+Ports [1, 1]
+Position [1470, 30, 1530, 90]
+ZOrder 10
+InputPortMap "u0"

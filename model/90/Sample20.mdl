@@ -1,0 +1,364 @@
+Model {
+  Name			  "sampleModel13"
+  System {
+    Name		    "sampleModel13"
+    Location		    [23, 14, 1017, 767]
+    SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
+    Open		    on
+    PortBlocksUseCompactNotation off
+    SetExecutionDomain	    off
+    ExecutionDomainType	    "Deduce"
+    ModelBrowserVisibility  on
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    "8"
+    SimulinkSubDomain	    "Simulink"
+    Block {
+      BlockType		      Reference
+      Name		      "cfblk1"
+      SID		      "1"
+      Ports		      [1, 1]
+      Position		      [30, 30, 90, 90]
+      ZOrder		      1
+      LibraryVersion	      "1.480"
+      SourceBlock	      "simulink/Discrete/Tapped Delay"
+      SourceType	      "Tapped Delay Line"
+      SourceProductBaseCode   "SL"
+      MultithreadedSim	      "auto"
+      vinit		      "0.0"
+      samptime		      "-1"
+      NumDelays		      "1"
+      DelayOrder	      "Oldest"
+      includeCurrent	      off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "cfblk2"
+      SID		      "2"
+      Ports		      [1, 1]
+      Position		      [190, 30, 250, 90]
+      ZOrder		      2
+      LibraryVersion	      "1.480"
+      SourceBlock	      "simulink/Discrete/Transfer Fcn\nFirst Order"
+      SourceType	      "First Order Transfer Fcn"
+      SourceProductBaseCode   "SL"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      ContentPreviewEnabled   off
+      PoleZ		      "0.95"
+      ICPrevOutput	      "0.0"
+      RndMeth		      "Floor"
+      DoSatur		      off
+    }
+    Block {
+      BlockType		      Record
+      Name		      "cfblk3"
+      SID		      "3"
+      Ports		      [1]
+      Position		      [350, 30, 410, 90]
+      ZOrder		      25
+      NumPorts		      "DataTag0"
+      FileSettingsInternal    "{\"entries\":[{\"content\":{\"excelSettings\":{\"content\":{},\"type\":\"Streamout.Exce"
+      "lSettings\"}},\"type\":\"Streamout.FileSettingStorage\",\"uuid\":\"3fb9aa49-5d17-4766-acc5-27e4c463e78a\"}],\"pa"
+      "ckageUris\":[\"http://schema.mathworks.com/mf0/streamout_blocks/R2020a\"],\"version\":\"1.0\"}"
+      FrameSettings	      "DataTag1"
+      SignalsInternal	      "{\"entries\":[{\"content\":{\"signals\":[{\"content\":{\"blockPath\":[\"sampleModel13/cfb"
+      "lk3\"],\"channel\":[],\"dimensions\":[1],\"domain\":\"samplemodel13/cfblk3\",\"lineColor\":\"#a2142f\",\"plots\""
+      ":[1],\"port\":1,\"sid\":[],\"signalID\":50,\"signalName\":\"cfblk5\"},\"type\":\"RecordBlkView.Signal\",\"uuid\""
+      ":\"b6d06322-b3e9-446a-9883-baad20490602\"}]},\"type\":\"RecordBlkView.InputSignals\",\"uuid\":\"0cd5caea-f56c-47"
+      "40-9756-e506e677915b\"}],\"packageUris\":[\"http://schema.mathworks.com/mf0/streamout_blocks/R2020a\"],\"version"
+      "\":\"1.0\"}"
+      Object {
+	$PropName		"PlotPreferences"
+	$ObjectID		24
+	$ClassName		"Simulink.record.internal.PlotPreferences"
+	Object {
+	  $PropName		  "Time"
+	  $ObjectID		  25
+	  $ClassName		  "Simulink.record.internal.TimePlotPreferences"
+	  TicksColor		  [0.0, 0.0, 0.0]
+	  TicksPosition		  "Outside"
+	  TickLabels		  "All"
+	  PlotColor		  [1.0, 1.0, 1.0]
+	  GridColor		  [0.81568627450980391, 0.82352941176470584, 0.82745098039215681]
+	  LegendPosition	  "TopLeft"
+	  Markers		  "Hide"
+	  GridLines		  "All"
+	  PlotBorder		  "Show"
+	  UpdateMode		  "Wrap"
+	  TimeSpan		  "Auto"
+	  TLimits		  [0.0, 10.0]
+	  YLimits		  [-3.0, 3.0]
+	  ScaleAtStop		  [1]
+	}
+	Object {
+	  $PropName		  "XY"
+	  $ObjectID		  26
+	  $ClassName		  "Simulink.record.internal.XYPlotPreferences"
+	  TicksColor		  [0.0, 0.0, 0.0]
+	  PlotColor		  [1.0, 1.0, 1.0]
+	  GridColor		  [0.81568627450980391, 0.82352941176470584, 0.82745098039215681]
+	  Line			  "Show"
+	  LineColor		  "YColor"
+	  Markers		  "Hide"
+	  MarkerBorder		  "XColor"
+	  MarkerFill		  "YColor"
+	  MarkerSize		  [3.5]
+	  TrendLine		  "Hide"
+	  TrendLineColor	  [1.0, 0.0, 0.0]
+	  TrendLineWeight	  [2.5]
+	  TrendLineType		  "Linear"
+	  PolynomialOrder	  [3.0]
+	  GridLines		  "On"
+	}
+	Object {
+	  $PropName		  "Map"
+	  $ObjectID		  27
+	  $ClassName		  "Simulink.record.internal.MapPlotPreferences"
+	  Type			  "Street"
+	}
+	Object {
+	  $PropName		  "Sparklines"
+	  $ObjectID		  28
+	  $ClassName		  "Simulink.record.internal.SparklinePlotPreferences"
+	  SubPlotID		  [1]
+	  minHeight		  [80]
+	  TicksColor		  [0.0, 0.0, 0.0]
+	  TicksPosition		  "Inside"
+	  TickLabels		  "All"
+	  PlotColor		  [1.0, 1.0, 1.0]
+	  GridColor		  [0.81568627450980391, 0.82352941176470584, 0.82745098039215681]
+	  LegendPosition	  "InsideLeft"
+	  Markers		  "Hide"
+	  GridLines		  "All"
+	  PlotBorder		  "Show"
+	  UpdateMode		  "Wrap"
+	  TimeSpan		  "Auto"
+	  TLimits		  [0.0, 100.0]
+	  YLimits		  [-3.0, 3.0]
+	  ScaleAtStop		  [1]
+	}
+      }
+      CanvasColor	      "DataTag2"
+      VisualizationBindings   "{\"sparklinesplugin\":{\"info\":[{\"bindingParametersList\":[],\"subplotID\":1}]}}"
+    }
+    Block {
+      BlockType		      Record
+      Name		      "cfblk4"
+      SID		      "4"
+      Ports		      [1]
+      Position		      [510, 30, 570, 90]
+      ZOrder		      26
+      NumPorts		      "DataTag3"
+      FileSettingsInternal    "{\"entries\":[{\"content\":{\"excelSettings\":{\"content\":{},\"type\":\"Streamout.Exce"
+      "lSettings\"}},\"type\":\"Streamout.FileSettingStorage\",\"uuid\":\"b671fe1b-52d9-43b5-a1e9-ad667799af3a\"}],\"pa"
+      "ckageUris\":[\"http://schema.mathworks.com/mf0/streamout_blocks/R2020a\"],\"version\":\"1.0\"}"
+      FrameSettings	      "DataTag4"
+      SignalsInternal	      "{\"entries\":[{\"content\":{\"signals\":[{\"content\":{\"blockPath\":[\"sampleModel13/cfb"
+      "lk4\"],\"channel\":[],\"dimensions\":[1],\"domain\":\"samplemodel13/cfblk4\",\"lineColor\":\"#4dbeee\",\"plots\""
+      ":[1],\"port\":1,\"sid\":[],\"signalID\":45,\"signalName\":\"cfblk2\"},\"type\":\"RecordBlkView.Signal\",\"uuid\""
+      ":\"670fad39-f582-4c0e-8e54-3046cafd8108\"}]},\"type\":\"RecordBlkView.InputSignals\",\"uuid\":\"b8154991-b65e-4e"
+      "fb-8d99-3128a3d1e75e\"}],\"packageUris\":[\"http://schema.mathworks.com/mf0/streamout_blocks/R2020a\"],\"version"
+      "\":\"1.0\"}"
+      Object {
+	$PropName		"PlotPreferences"
+	$ObjectID		29
+	$ClassName		"Simulink.record.internal.PlotPreferences"
+	Object {
+	  $PropName		  "Time"
+	  $ObjectID		  30
+	  $ClassName		  "Simulink.record.internal.TimePlotPreferences"
+	  TicksColor		  [0.0, 0.0, 0.0]
+	  TicksPosition		  "Outside"
+	  TickLabels		  "All"
+	  PlotColor		  [1.0, 1.0, 1.0]
+	  GridColor		  [0.81568627450980391, 0.82352941176470584, 0.82745098039215681]
+	  LegendPosition	  "TopLeft"
+	  Markers		  "Hide"
+	  GridLines		  "All"
+	  PlotBorder		  "Show"
+	  UpdateMode		  "Wrap"
+	  TimeSpan		  "Auto"
+	  TLimits		  [0.0, 10.0]
+	  YLimits		  [-3.0, 3.0]
+	  ScaleAtStop		  [1]
+	}
+	Object {
+	  $PropName		  "XY"
+	  $ObjectID		  31
+	  $ClassName		  "Simulink.record.internal.XYPlotPreferences"
+	  TicksColor		  [0.0, 0.0, 0.0]
+	  PlotColor		  [1.0, 1.0, 1.0]
+	  GridColor		  [0.81568627450980391, 0.82352941176470584, 0.82745098039215681]
+	  Line			  "Show"
+	  LineColor		  "YColor"
+	  Markers		  "Hide"
+	  MarkerBorder		  "XColor"
+	  MarkerFill		  "YColor"
+	  MarkerSize		  [3.5]
+	  TrendLine		  "Hide"
+	  TrendLineColor	  [1.0, 0.0, 0.0]
+	  TrendLineWeight	  [2.5]
+	  TrendLineType		  "Linear"
+	  PolynomialOrder	  [3.0]
+	  GridLines		  "On"
+	}
+	Object {
+	  $PropName		  "Map"
+	  $ObjectID		  32
+	  $ClassName		  "Simulink.record.internal.MapPlotPreferences"
+	  Type			  "Street"
+	}
+	Object {
+	  $PropName		  "Sparklines"
+	  $ObjectID		  33
+	  $ClassName		  "Simulink.record.internal.SparklinePlotPreferences"
+	  SubPlotID		  [1]
+	  minHeight		  [80]
+	  TicksColor		  [0.0, 0.0, 0.0]
+	  TicksPosition		  "Inside"
+	  TickLabels		  "All"
+	  PlotColor		  [1.0, 1.0, 1.0]
+	  GridColor		  [0.81568627450980391, 0.82352941176470584, 0.82745098039215681]
+	  LegendPosition	  "InsideLeft"
+	  Markers		  "Hide"
+	  GridLines		  "All"
+	  PlotBorder		  "Show"
+	  UpdateMode		  "Wrap"
+	  TimeSpan		  "Auto"
+	  TLimits		  [0.0, 100.0]
+	  YLimits		  [-3.0, 3.0]
+	  ScaleAtStop		  [1]
+	}
+      }
+      CanvasColor	      "DataTag5"
+      VisualizationBindings   "{\"sparklinesplugin\":{\"info\":[{\"bindingParametersList\":[],\"subplotID\":1}]}}"
+    }
+    Block {
+      BlockType		      Sin
+      Name		      "cfblk5"
+      SID		      "5"
+      Ports		      [0, 1]
+      Position		      [670, 30, 730, 90]
+      ZOrder		      27
+      Amplitude		      "[-999793286.052361]"
+      Bias		      "[176811113.608240]"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      RandomNumber
+      Name		      "cfblk6"
+      SID		      "6"
+      Position		      [830, 30, 890, 90]
+      ZOrder		      28
+      Mean		      "[59920.820181]"
+      Variance		      "[84424.617097]"
+      Seed		      "[100747269.000000]"
+      SampleTime	      "0.1"
+    }
+    Block {
+      BlockType		      Sin
+      Name		      "cfblk7"
+      SID		      "7"
+      Ports		      [0, 1]
+      Position		      [990, 30, 1050, 90]
+      ZOrder		      29
+      Amplitude		      "[-79629009.784272]"
+      Bias		      "[401051640.926315]"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "cfblk8"
+      SID		      "8"
+      Ports		      [0, 1]
+      Position		      [1150, 30, 1210, 90]
+      ZOrder		      30
+      LibraryVersion	      "1.480"
+      SourceBlock	      "simulink/Sources/Repeating\nSequence"
+      SourceType	      "Repeating table"
+      SourceProductBaseCode   "SL"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      ContentPreviewEnabled   off
+      rep_seq_t		      "[0 2]"
+      rep_seq_y		      "[-184979207.911639, -632040509.546820]"
+    }
+    Line {
+      ZOrder		      1
+      SrcBlock		      "cfblk5"
+      SrcPort		      1
+      Points		      [0, -35; -400, 0]
+      DstBlock		      "cfblk3"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      2
+      SrcBlock		      "cfblk2"
+      SrcPort		      1
+      Points		      [70, 0; 0, 35; 170, 0]
+      DstBlock		      "cfblk4"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      3
+      SrcBlock		      "cfblk6"
+      SrcPort		      1
+      Points		      [0, -45; -720, 0]
+      DstBlock		      "cfblk2"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      4
+      SrcBlock		      "cfblk8"
+      SrcPort		      1
+      Points		      [0, 45; -1200, 0]
+      DstBlock		      "cfblk1"
+      DstPort		      1
+    }
+  }
+}
+MatData {
+  NumRecords		  6
+  DataRecord {
+    Tag			    DataTag0
+    Data		    "  %)30     .    .     8    (    !@         %    \"     $    !     0         )    \"            / _"
+  }
+  DataRecord {
+    Tag			    DataTag1
+    Data		    "  %)30     .    ,     8    (    \"0(        %    \"     $    !     0         \"  $       "
+  }
+  DataRecord {
+    Tag			    DataTag2
+    Data		    "  %)30     .    2     8    (    !@         %    \"     $    #     0         )    &    %]?7U]?7^\\_7U]?7"
+    "U]?[S]?7U]?7U_O/P"
+  }
+  DataRecord {
+    Tag			    DataTag3
+    Data		    "  %)30     .    .     8    (    !@         %    \"     $    !     0         )    \"            / _"
+  }
+  DataRecord {
+    Tag			    DataTag4
+    Data		    "  %)30     .    ,     8    (    \"0(        %    \"     $    !     0         \"  $       "
+  }
+  DataRecord {
+    Tag			    DataTag5
+    Data		    "  %)30     .    2     8    (    !@         %    \"     $    #     0         )    &    %]?7U]?7^\\_7U]?7"
+    "U]?[S]?7U]?7U_O/P"
+  }
+}

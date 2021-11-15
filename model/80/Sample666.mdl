@@ -1,0 +1,170 @@
+Model {
+Name "sample"
+System {
+Name "sample"
+SystemRect [0.000000, 0.000000, 0.000000, 0.000000]
+SetExecutionDomain	off
+ExecutionDomainType	"Deduce"
+SimulinkSubDomain	"Simulink"
+Block {
+BlockType Inport
+Name "a"
+SID "9"
+}
+Block {
+BlockType Inport
+Name "b"
+SID "18"
+Port "2"
+}
+Block {
+BlockType Inport
+Name "b"
+SID "19"
+Port "3"
+}
+Block {
+BlockType Inport
+Name "c"
+SID "20"
+Port "3"
+}
+Block {
+BlockType Delay
+Name "d"
+SID "21"
+Ports [2, 1]
+InputPortMap "u0,e6"
+ShowEnablePort on
+SampleTime "1"
+}
+Block {
+BlockType DiscreteIntegrator
+Name "e"
+SID "12"
+Ports [1, 1]
+}
+Block {
+BlockType DiscreteIntegrator
+Name "f"
+SID "13"
+Ports [1, 1]
+}
+Block {
+BlockType DiscreteFilter
+Name "g"
+SID "14"
+Ports [1, 1]
+InputPortMap "u0"
+SampleTime "1"
+}
+Block {
+BlockType UnitDelay
+Name "h"
+SID "15"
+HasFrameUpgradeWarning on
+}
+Block {
+BlockType Reference
+Name "i"
+SID "16"
+Ports [1, 1]
+SourceBlock "simulink/Discrete/Tapped Delay"
+MultiThreadCoSim auto
+vinit 0.0
+samptime -1
+NumDelays 1
+includeCurrent off
+}
+Block {
+BlockType Reference
+Name "j"
+SID "17"
+Ports [1, 1]
+SourceBlock "simulink/Discrete/Difference"
+ICPrevInput 0.0
+OutMin []
+OutMax []
+OutDataType "fixdt(1, 16)"
+OutScaling "2^-10"
+LockScale off
+RndMeth Floor
+DoSatur off
+}
+Block {
+BlockType Sum
+Name "k"
+SID "51"
+Ports [2, 1]
+ShowName off
+Inputs "|++"
+}
+Block {
+BlockType Sqrt
+Name "l"
+SID "52"
+Operator "rSqrt"
+AlgorithmType "Newton-Raphson"
+}
+Block {
+BlockType Outport
+Name "m"
+SID "45"
+VectorParamsAs1DForOutWhenUnconnected	off
+}
+Line {
+SrcBlock "b"
+SrcPort 1
+DstBlock "k"
+DstPort 1
+}
+Line {
+SrcBlock "n"
+SrcPort 1
+DstBlock "m"
+DstPort 1
+}
+Line {
+SrcBlock "m"
+SrcPort 1
+DstBlock "k"
+DstPort 1
+}
+Line {
+SrcBlock "a"
+SrcPort 1
+DstBlock "k"
+DstPort 2
+}
+Line {
+SrcBlock "d"
+SrcPort 1
+DstBlock "j"
+DstPort 1
+}
+Line {
+SrcBlock "j"
+SrcPort 1
+DstBlock "d"
+DstPort 1
+}
+Line {
+SrcBlock "n"
+SrcPort 1
+DstBlock "i"
+DstPort 2
+}
+Line {
+SrcBlock "i"
+SrcPort 1
+DstBlock "d"
+DstPort 1
+}
+Line {
+SrcBlock "i"
+SrcPort 1
+DstBlock "c"
+DstPort 1
+}
+}
+}

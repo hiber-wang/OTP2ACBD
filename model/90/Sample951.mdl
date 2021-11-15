@@ -1,0 +1,85 @@
+Model {
+  Name			  "sampleModel464"
+  System {
+    Name		    "sampleModel464"
+    Location		    [93, 84, 907, 617]
+    SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
+    Open		    on
+    PortBlocksUseCompactNotation off
+    SetExecutionDomain	    off
+    ExecutionDomainType	    "Deduce"
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    "5"
+    SimulinkSubDomain	    "Simulink"
+    Block {
+      BlockType		      Terminator
+      Name		      "cfblk1"
+      SID		      "1"
+      Position		      [30, 30, 90, 90]
+      ZOrder		      1
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "cfblk2"
+      SID		      "2"
+      Position		      [190, 30, 250, 90]
+      ZOrder		      2
+    }
+    Block {
+      BlockType		      DiscretePulseGenerator
+      Name		      "cfblk3"
+      SID		      "3"
+      Ports		      [0, 1]
+      Position		      [350, 30, 410, 90]
+      ZOrder		      3
+      PulseType		      "Time based"
+      Amplitude		      "[894558048.295087]"
+      Period		      "[93067545.475810]"
+      PulseWidth	      "5"
+      PhaseDelay	      "[6.000000]"
+    }
+    Block {
+      BlockType		      DigitalClock
+      Name		      "cfblk4"
+      SID		      "4"
+      Position		      [510, 30, 570, 90]
+      ZOrder		      4
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "cfblk5"
+      SID		      "5"
+      Position		      [670, 30, 730, 90]
+      ZOrder		      5
+      Value		      "[-895139074.346926]"
+      SampleTime	      "1"
+    }
+    Line {
+      ZOrder		      1
+      SrcBlock		      "cfblk4"
+      SrcPort		      1
+      Points		      [0, -35; -400, 0]
+      DstBlock		      "cfblk2"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      2
+      SrcBlock		      "cfblk5"
+      SrcPort		      1
+      Points		      [0, 35; -720, 0]
+      DstBlock		      "cfblk1"
+      DstPort		      1
+    }
+  }
+}

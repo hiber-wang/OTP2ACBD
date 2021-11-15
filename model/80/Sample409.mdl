@@ -1,0 +1,157 @@
+Model {
+Name "sample"
+System {
+Name "sample"
+SystemRect [0.000000, 0.000000, 0.000000, 0.000000]
+SetExecutionDomain	off
+ExecutionDomainType	"Deduce"
+SimulinkSubDomain	"Simulink"
+Block {
+BlockType Inport
+Name "a"
+SID "9"
+}
+Block {
+BlockType Inport
+Name "j"
+SID "18"
+Port "2"
+}
+Block {
+BlockType Inport
+Name "k"
+SID "19"
+Port "3"
+}
+Block {
+BlockType Inport
+Name "l"
+SID "20"
+Port "4"
+}
+Block {
+BlockType Inport
+Name "b"
+SID "21"
+Port "4"
+}
+Block {
+BlockType DiscreteFilter
+Name "e"
+SID "11"
+Ports [1, 1]
+InputPortMap "u0"
+SampleTime "1"
+}
+Block {
+BlockType Reference
+Name "f"
+SID "13"
+Ports [1, 1]
+SourceBlock "simulink/Discrete/Tapped Delay"
+MultiThreadCoSim auto
+vinit 0.0
+samptime -1
+NumDelays 1
+includeCurrent off
+}
+Block {
+BlockType Sqrt
+Name "g"
+SID "14"
+Operator "rSqrt"
+AlgorithmType "Newton-Raphson"
+}
+Block {
+BlockType Abs
+Name "h"
+SID "15"
+SaturateOnIntegerOverflow off
+}
+Block {
+BlockType Sqrt
+Name "l"
+SID "16"
+Operator "rSqrt"
+AlgorithmType "Newton-Raphson"
+}
+Block {
+BlockType Outport
+Name "m"
+SID "10"
+VectorParamsAs1DForOutWhenUnconnected	off
+}
+Line {
+SrcBlock "g"
+SrcPort 1
+DstBlock "c"
+DstPort 1
+}
+Line {
+SrcBlock "g"
+SrcPort 1
+DstBlock "f"
+DstPort 1
+}
+Line {
+SrcBlock "i"
+SrcPort 1
+Branch {
+DstBlock "h"
+DstPort 1
+}
+Branch {
+DstBlock "g"
+DstPort 1
+}
+}
+Line {
+SrcBlock "j"
+SrcPort 1
+DstBlock "e"
+DstPort 1
+}
+Line {
+SrcBlock "a"
+SrcPort 1
+DstBlock "e"
+DstPort 1
+}
+Line {
+SrcBlock "i"
+SrcPort 1
+Branch {
+DstBlock "j"
+DstPort 1
+}
+Branch {
+DstBlock "f"
+DstPort 3
+}
+}
+Line {
+SrcBlock "e"
+SrcPort 1
+DstBlock "h"
+DstPort 1
+}
+Line {
+SrcBlock "d"
+SrcPort 1
+DstBlock "f"
+DstPort 2
+}
+Line {
+SrcBlock "h"
+SrcPort 1
+DstBlock "b"
+DstPort 1
+}
+Line {
+SrcBlock "b"
+SrcPort 1
+DstBlock "d"
+DstPort 1
+}
+}
+}

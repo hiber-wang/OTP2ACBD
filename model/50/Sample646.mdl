@@ -1,0 +1,62 @@
+Model {
+Name "sample"
+System {
+Name "sample"
+SystemRect [0.000000, 0.000000, 0.000000, 0.000000]
+SetExecutionDomain off
+ExecutionDomainType "Deduce"
+SIDHighWatermark "1"
+SimulinkSubDomain "Simulink"
+Block {
+BlockType Delay
+Name "a"
+SID "1"
+Ports [2, 1]
+InputPortMap "u0,p1"
+DelayLengthSource "Input port"
+SampleTime "1"
+}
+Block {
+BlockType Delay
+Name "b"
+SID "1"
+Ports [1, 1]
+InputPortMap "u0"
+SampleTime "1"
+}
+Block {
+BlockType Assignment
+Name "c"
+SID "2"
+Ports [2, 1]
+DiagnosticForDimensions "Warning"
+IndexOptions "Index vecting "Input"
+InitialCondia "nIndex "Discrete-t(1, 16)"
+LockScale off
+}
+Line {
+SrcBlock "a"
+SrcPort 1
+Branch {
+DstBlock "i"
+DstPort 1
+}
+Branch {
+DstBlock "i"
+DstPort 2
+}
+}
+Line {
+SrcBlock "e"
+SrcPort 1
+DstBlock "g"
+DstPort 1
+}
+Line {
+SrcBlock "i"
+SrcPort 1
+DstBlock "g"
+DstPort 2
+}
+}
+}

@@ -1,0 +1,202 @@
+Model {
+Name "sample"
+System {
+Name "sample"
+SystemRect [0.000000, 0.000000, 0.000000, 0.000000]
+SetExecutionDomain	off
+ExecutionDomainType	"Deduce"
+SimulinkSubDomain	"Simulink"
+Block {
+BlockType Inport
+Name "a"
+SID "9"
+}
+Block {
+BlockType Inport
+Name "m"
+SID "18"
+Port "2"
+}
+Block {
+BlockType Inport
+Name "b"
+SID "19"
+Port "3"
+}
+Block {
+BlockType Inport
+Name "c"
+SID "20"
+Port "3"
+}
+Block {
+BlockType Inport
+Name "d"
+SID "21"
+Port "4"
+}
+Block {
+BlockType Delay
+Name "k"
+SID "25"
+Ports [1, 1]
+InputPortMap "u0"
+SampleTime "1"
+}
+Block {
+BlockType Reference
+Name "c"
+SID "16"
+Ports [1, 1]
+SourceBlock "simulink/Discrete/Tapped Delay"
+MultiThreadCoSim auto
+vinit 0.0
+samptime -1
+NumDelays 1
+includeCurrent off
+}
+Block {
+BlockType Reference
+Name "d"
+SID "17"
+Ports [1, 1]
+SourceBlock "simulink/Discrete/Transfer Fcn\nLead or Lag"
+PoleZ 0.95
+ZeroZ 0.75
+ICPrevInput 0.0
+RndMeth Floor
+DoSatur off
+}
+Block {
+BlockType Sum
+Name "e"
+SID "18"
+Ports [2, 1]
+IconShape "rectangular"
+Inputs "+-"
+}
+Block {
+BlockType MinMax
+Name "f"
+SID "19"
+Ports [3, 1]
+Inputs "3"
+}
+Block {
+BlockType Sum
+Name "g"
+SID "20"
+Ports [2, 1]
+IconShape "rectangular"
+Inputs "+-"
+}
+Block {
+BlockType Reshape
+Name "h"
+SID "21"
+Ports [1, 1]
+}
+Block {
+BlockType Trigonometry
+Name "i"
+SID "22"
+Ports [1, 1]
+}
+Block {
+BlockType MinMax
+Name "j"
+SID "23"
+Ports [3, 1]
+Inputs "3"
+}
+Block {
+BlockType Assignment
+Name "k"
+SID "24"
+Ports [2, 1]
+DiagnosticForDimensions "Warning"
+IndexOptions "Index vector (dialog)"
+Indices "1"
+OutputSizes "1"
+}
+Block {
+BlockType Constant
+Name "l"
+SID "25"
+Value "[419252148.135184]"
+SampleTime "1"
+}
+Block {
+BlockType Outport
+Name "h"
+SID "18"
+VectorParamsAs1DForOutWhenUnconnected	off
+}
+Line {
+SrcBlock "i"
+SrcPort 1
+DstBlock "h"
+DstPort 1
+}
+Line {
+SrcBlock "j"
+SrcPort 1
+DstBlock "d"
+DstPort 1
+}
+Line {
+SrcBlock "e"
+SrcPort 1
+DstBlock "k"
+DstPort 2
+}
+Line {
+SrcBlock "h"
+SrcPort 1
+DstBlock "f"
+DstPort 1
+}
+Line {
+SrcBlock "a"
+SrcPort 1
+DstBlock "h"
+DstPort 1
+}
+Line {
+SrcBlock "e"
+SrcPort 1
+DstBlock "h"
+DstPort 2
+}
+Line {
+SrcBlock "h"
+SrcPort 1
+DstBlock "g"
+DstPort 1
+}
+Line {
+SrcBlock "i"
+SrcPort 1
+DstBlock "h"
+DstPort 1
+}
+Line {
+SrcBlock "i"
+SrcPort 1
+DstBlock "e"
+DstPort 1
+}
+Line {
+SrcBlock "e"
+SrcPort 1
+DstBlock "b"
+DstPort 1
+}
+Line {
+SrcBlock "b"
+SrcPort 1
+DstBlock "g"
+DstPort 1
+}
+}
+}

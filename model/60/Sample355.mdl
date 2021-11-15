@@ -1,0 +1,296 @@
+Model {
+Name "sample"
+System {
+Name "sample"
+SystemRect [0.000000, 0.000000, 0.000000, 0.000000]
+SetExecutionDomain off
+ExecutionDomainType "Deduce"
+SIDHighWatermark "1"
+SimulinkSubDomain "Simulink"
+Block {
+BlockType Delay
+Name "a"
+SID "1"
+Ports [2, 1]
+InputPortMap "u0,e6"
+ShowEnablePort on
+SampleTime "1"
+}
+Block {
+BlockType Delay
+Name "b"
+SID "33"
+Ports [1, 1]
+InputPortMap "u0"
+SampleTime "1"
+}
+Block {
+BlockType Delay
+Name "c"
+SID "1"
+Ports [1, 1]
+InputPortMap "u0"
+SampleTime "1"
+}
+Block {
+BlockType Delay
+Name "d"
+SID "2"
+Ports [1, 1]
+InputPortMap "u0"
+SampleTime "1"
+}
+Block {
+BlockType Reshape
+Name "e"
+SID "2"
+Ports [1, 1]
+}
+Block {
+BlockType Scope
+Name "f"
+SID "3"
+Ports []
+ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg"
+NumInputPorts "1"
+Floating on
+}
+Block {
+BlockType Display
+Name "g"
+SID "4"
+Ports [1]
+Decimation "1"
+}
+Block {
+BlockType Constant
+Name "h"
+SID "5"
+Value "[254699156.936991]"
+SampleTime "1"
+}
+Block {
+BlockType SubSystem
+Name "i"
+SID "6"
+Ports [3, 1]
+RequestExecContextInheritance off
+System {
+Name "i"
+SystemRect [0.000000, 0.000000, 0.000000, 0.000000]
+SetExecutionDomain	off
+ExecutionDomainType	"Deduce"
+SimulinkSubDomain	"Simulink"
+Block {
+BlockType Inport
+Name "a"
+SID "6"
+}
+Block {
+BlockType Inport
+Name "i"
+SID "13"
+Port "2"
+}
+Block {
+BlockType Inport
+Name "j"
+SID "14"
+Port "3"
+}
+Block {
+BlockType Inport
+Name "b"
+SID "15"
+Port "4"
+}
+Block {
+BlockType Inport
+Name "c"
+SID "16"
+Port "4"
+}
+Block {
+BlockType Inport
+Name "m"
+SID "17"
+Port "4"
+}
+Block {
+BlockType Delay
+Name "i"
+SID "18"
+Ports [1, 1]
+InputPortMap "u0"
+SampleTime "1"
+}
+Block {
+BlockType Delay
+Name "d"
+SID "8"
+Ports [2, 1]
+InputPortMap "u0,e6"
+ShowEnablePort on
+SampleTime "1"
+}
+Block {
+BlockType Reshape
+Name "e"
+SID "9"
+Ports [1, 1]
+}
+Block {
+BlockType Sum
+Name "f"
+SID "10"
+Ports [2, 1]
+IconShape "rectangular"
+Inputs "+-"
+}
+Block {
+BlockType Product
+Name "g"
+SID "11"
+Ports [2, 1]
+Inputs "**"
+}
+Block {
+BlockType ComplexToRealImag
+Name "h"
+SID "12"
+Ports [1, 2]
+}
+Block {
+BlockType Product
+Name "i"
+SID "13"
+Ports [2, 1]
+}
+Block {
+BlockType Constant
+Name "j"
+SID "14"
+Value "[-267129193.615759]"
+SampleTime "1"
+}
+Block {
+BlockType Outport
+Name "e"
+SID "10"
+VectorParamsAs1DForOutWhenUnconnected	off
+}
+Block {
+BlockType Outport
+Name "i"
+SID "16"
+Port "2"
+VectorParamsAs1DForOutWhenUnconnected	off
+}
+Line {
+SrcBlock "f"
+SrcPort 1
+DstBlock "c"
+DstPort 1
+}
+Line {
+SrcBlock "d"
+SrcPort 1
+DstBlock "c"
+DstPort 1
+}
+Line {
+SrcBlock "a"
+SrcPort 1
+DstBlock "e"
+DstPort 1
+}
+Line {
+SrcBlock "g"
+SrcPort 1
+Branch {
+DstBlock "f"
+DstPort 2
+}
+Branch {
+DstBlock "e"
+DstPort 2
+}
+}
+}
+}
+Block {
+BlockType Delay
+Name "h"
+SID "1"
+Ports [1, 1]
+InputPortMap "u0"
+SampleTime "1"
+}
+Block {
+BlockType Outport
+Name "e"
+SID "5"
+VectorParamsAs1DForOutWhenUnconnected off
+}
+Line {
+SrcBlock "b"
+SrcPort 1
+DstBlock "a"
+DstPort 1
+}
+Line {
+SrcBlock "e"
+SrcPort 1
+DstBlock "a"
+DstPort 2
+}
+Line {
+SrcBlock "c"
+SrcPort 1
+DstBlock "a"
+DstPort 1
+}
+Line {
+SrcBlock "f"
+SrcPort 1
+DstBlock "a"
+DstPort 1
+}
+Line {
+SrcBlock "d"
+SrcPort 1
+DstBlock "e"
+DstPort 2
+}
+Line {
+SrcBlock "e"
+SrcPort 1
+DstBlock "f"
+DstPort 1
+}
+Line {
+SrcBlock "a"
+SrcPort 1
+DstBlock "f"
+DstPort 1
+}
+Line {
+SrcBlock "f"
+SrcPort 1
+Branch {
+DstBlock "b"
+DstPort 1
+}
+Branch {
+DstBlock "g"
+DstPort 1
+}
+}
+Line {
+SrcBlock "e"
+SrcPort 1
+DstBlock "b"
+DstPort 2
+}
+}
+}
