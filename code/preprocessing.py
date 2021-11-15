@@ -75,15 +75,13 @@ def recognition_line(filename):
 def divide_line(path):
     block, line = recognition_line(path)
     if not block:
-        print('without useful line', path)
-        return line
+        return line  # without useful line
     block_dic = {}
     for i in block:
         block_dic[i[1]] = i[0]
     node_line = []
     for node in line:
         if not node[0]:
-            print("node here", path)
             return {}
         node_line_0 = node[0][0]
         for node_line_1 in node[1]:

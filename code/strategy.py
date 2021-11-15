@@ -4,6 +4,7 @@ import modeling
 import library
 import dataset
 import random
+import time
 
 
 def updateFV(word_vector_path, sigmoid, k):
@@ -72,6 +73,7 @@ def var_fast_sort(word_vector_path, dis_path, window_size):
 
 
 def var(word_vector_path, dis_path, window_size, model_path=None):
+    start = time.time()
     QTR = []
     bug_cat_copy = dataset.bug_cat.copy()
     total_cnt = len(bug_cat_copy)
@@ -134,22 +136,14 @@ def var(word_vector_path, dis_path, window_size, model_path=None):
             except:
                 print(maxRV, "can't use the detect_emi function")
         word_vector = word_vector.drop(maxRV, axis=0)
-    return QTR
+    end = time.time()
+    return end - start
 
 
-def danger_fast_test(word_vector_path, dis_path, sigmoid):
+def danger_fast_test(word_vector_path, sigmoid):
     QTR = []
-    dis = pd.read_csv(dis_path, index_col=0)
-    dis = dis.values.tolist()
     rv = modeling.build_rv(word_vector_path)
     word_vector = pd.read_csv(word_vector_path, index_col=0)
-    row_name = word_vector._stat_axis.values.tolist()
-    dis_dict = {}
-    for i in range(len(row_name)):
-        dis_dict2 = {}
-        for j in range(len(row_name)):
-            dis_dict2[row_name[j]] = dis[i][j]
-        dis_dict[row_name[i]] = dis_dict2
     rv_sort = sorted(rv.items(), key=lambda x: x[1], reverse=True)
     maxRV = rv_sort[0][0]
     QTR.append(maxRV)
@@ -173,22 +167,14 @@ def danger_fast_test(word_vector_path, dis_path, sigmoid):
     return QTR
 
 
-def danger(word_vector_path, dis_path, sigmoid, model_path):
+def danger(word_vector_path, sigmoid, model_path):
+    start = time.time()
     QTR = []
     bug_cat_copy = dataset.bug_cat.copy()
     find_cnt = 0
     total_cnt = len(bug_cat_copy)
-    dis = pd.read_csv(dis_path, index_col=0)
-    dis = dis.values.tolist()
     rv = modeling.build_rv(word_vector_path)
     word_vector = pd.read_csv(word_vector_path, index_col=0)
-    row_name = word_vector._stat_axis.values.tolist()
-    dis_dict = {}
-    for i in range(len(row_name)):
-        dis_dict2 = {}
-        for j in range(len(row_name)):
-            dis_dict2[row_name[j]] = dis[i][j]
-        dis_dict[row_name[i]] = dis_dict2
     rv_sort = sorted(rv.items(), key=lambda x: x[1], reverse=True)
     maxRV = rv_sort[0][0]
     QTR.append(maxRV)
@@ -233,7 +219,8 @@ def danger(word_vector_path, dis_path, sigmoid, model_path):
         if library.find_bug(maxRV, bug_cat_copy) == 1:
             find_cnt += 1
             print('find the bug', find_cnt, '/', total_cnt)
-    return QTR
+    end = time.time()
+    return end - start
 
 
 def var_danger_fast_test(word_vector_path, dis_path, window_size, sigmoid):
@@ -290,6 +277,7 @@ def var_danger_fast_test(word_vector_path, dis_path, window_size, sigmoid):
 
 
 def var_danger(word_vector_path, dis_path, window_size, sigmoid, model_path):
+    start = time.time()
     QTR = []
     bug_cat_copy = dataset.bug_cat.copy()
     find_cnt = 0
@@ -366,7 +354,8 @@ def var_danger(word_vector_path, dis_path, window_size, sigmoid, model_path):
         if library.find_bug(maxRV, bug_cat_copy) == 1:
             find_cnt += 1
             print('find the bug', find_cnt, '/', total_cnt)
-    return QTR
+    end = time.time()
+    return end - start
 
 
 def random_fast_test(word_vector_path):
@@ -383,6 +372,7 @@ def random_fast_test(word_vector_path):
 
 
 def random(word_vector_path, model_path):
+    start = time.time()
     find_cnt = 0
     bug_cat_copy = dataset.bug_cat.copy()
     total_cnt = len(bug_cat_copy)
@@ -390,6 +380,7 @@ def random(word_vector_path, model_path):
     row_name = word_vector._stat_axis.values.tolist()
     random_list = []
     while len(row_name) > 0 and len(bug_cat_copy) > 0:
+        random.shuffle(row_name)
         block = random.choice(row_name)
         try:
             crash_flag = testing.detect_crash_with_1_testcase(model_path + '/' + block)
@@ -408,4 +399,5 @@ def random(word_vector_path, model_path):
         random_list.append(block)
         random_list.reverse()
     random_list.reverse()
-    return random_list
+    end = start.time()
+    return end - start

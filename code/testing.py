@@ -3,6 +3,7 @@ import matlab.engine
 import io
 import os
 import shutil
+import path
 
 
 def detect_crash_with_1_testcase(model_path=None):
@@ -22,8 +23,8 @@ def detect_crash_with_1_testcase(model_path=None):
 
 
 def detect_emi(filename=None, file_path=None, folder_path='../workspace_for_emi',
-               eng_path='D:/github/OTP2ACBD/workspace_for_emi',
-               emi_path='D:/github/OTP2ACBD/slemi-master'):
+               eng_path=path.ENG_PATH,
+               emi_path=path.EMI_PATH):
     old_path = file_path + '/' + filename
     new_path = folder_path + '/' + filename
     if os.path.exists(folder_path):
