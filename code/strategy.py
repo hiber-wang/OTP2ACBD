@@ -371,7 +371,7 @@ def random_fast_test(word_vector_path):
     return random_list
 
 
-def random(word_vector_path, model_path):
+def random_sort(word_vector_path, model_path):
     start = time.time()
     find_cnt = 0
     bug_cat_copy = dataset.bug_cat.copy()
