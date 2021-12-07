@@ -1,2 +1,43 @@
 start calculate apfd ...
 the apfd in folder 50
+the apfd of var strategy is 0.6052447552447553
+the apfd of danger strategy is 0.5716783216783217
+the apfd of var_danger strategy is 0.6202797202797203
+the apfd of greedy strategy is 0.5643356643356643
+the apfd of random strategy is 0.5768461538461538
+the apfd in folder 60
+the apfd of var strategy is 0.754601226993865
+the apfd of danger strategy is 0.7105409927495817
+the apfd of var_danger strategy is 0.7651979921918572
+the apfd of greedy strategy is 0.6201896263245956
+the apfd of random strategy is 0.5746123814835474
+the apfd in folder 70
+the apfd of var strategy is 0.8057659932659932
+the apfd of danger strategy is 0.7422138047138046
+the apfd of var_danger strategy is 0.8160774410774411
+the apfd of greedy strategy is 0.6249999999999999
+the apfd of random strategy is 0.5707175925925927
+the apfd in folder 80
+the apfd of var strategy is 0.8514685314685314
+the apfd of danger strategy is 0.8186013986013986
+the apfd of var_danger strategy is 0.8525874125874126
+the apfd of greedy strategy is 0.6383216783216783
+the apfd of random strategy is 0.577448951048951
+the apfd in folder 90
+the apfd of var strategy is 0.8128671328671329
+the apfd of danger strategy is 0.8007692307692308
+the apfd of var_danger strategy is 0.836013986013986
+the apfd of greedy strategy is 0.5870629370629371
+the apfd of random strategy is 0.5719790209790212
+the apfd in folder 95
+the apfd of var strategy is 0.8474605206999573
+the apfd of danger strategy is 0.7950064020486555
+the apfd of var_danger strategy is 0.8641058472044387
+the apfd of greedy strategy is 0.5236448997012376
+the apfd of random strategy is 0.5840119504908238
+the function has completed!
+var_apfd=[0.6052447552447553, 0.754601226993865, 0.8057659932659932, 0.8514685314685314, 0.8128671328671329, 0.8474605206999573]
+danger_apfd=[0.5716783216783217, 0.7105409927495817, 0.7422138047138046, 0.8186013986013986, 0.8007692307692308, 0.7950064020486555]
+var_danger_apfd=[0.6202797202797203, 0.7651979921918572, 0.8160774410774411, 0.8525874125874126, 0.836013986013986, 0.8641058472044387]
+greedy_apfd=[0.5643356643356643, 0.6201896263245956, 0.6249999999999999, 0.6383216783216783, 0.5870629370629371, 0.5236448997012376]
+random_apfd=[0.5768461538461538, 0.5746123814835474, 0.5707175925925927, 0.577448951048951, 0.5719790209790212, 0.5840119504908238]

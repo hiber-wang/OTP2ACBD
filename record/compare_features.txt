@@ -1,0 +1,12 @@
+start compare features ...
+the apfd in folder 95
+use the feature of block
+the apfd of block features is 0.820102432778489
+use the feature of line
+the apfd of line features is 0.6994024754588134
+use the feature of metric
+the apfd of metric features is 0.7058472044387537
+the function has completed!
+block_apfd=[0.820102432778489]
+line_apfd=[0.6994024754588134]
+metric_apfd=[0.7058472044387537]

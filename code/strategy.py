@@ -5,17 +5,17 @@ import library
 import dataset
 import random
 import time
+from tqdm import tqdm
+
+# def updateFV(word_vector_path, sigmoid, k):
+#     word_vector = pd.read_csv(word_vector_path, index_col=0)
+#     word_vector = updateFV_2(word_vector, sigmoid, k)
+#     return word_vector
 
 
-def updateFV(word_vector_path, sigmoid, k):
-    word_vector = pd.read_csv(word_vector_path, index_col=0)
-    word_vector = updateFV_2(word_vector, sigmoid, k)
-    return word_vector
-
-
-def updateFV_2(word_vector, sigmoid, k):
+def updateFV_2(word_vector, sigmoid, k, max_length):
     word_vector_k = word_vector.loc[k, :]
-    for i in range(len(word_vector_k)):
+    for i in range(max_length):
         if word_vector_k[i] > 0:
             for j in range(len(word_vector.iloc[:, i])):
                 if word_vector.iloc[j, i] > 0:
@@ -23,9 +23,9 @@ def updateFV_2(word_vector, sigmoid, k):
     return word_vector
 
 
-def updateFV_3(word_vector, k):
+def updateFV_3(word_vector, k, max_length):
     word_vector_k = word_vector.loc[k, :]
-    for i in range(len(word_vector_k)):
+    for i in range(max_length):
         if word_vector_k[i] > 0:
             for j in range(len(word_vector.iloc[:, i])):
                 if word_vector.iloc[j, i] > 0:
@@ -33,11 +33,55 @@ def updateFV_3(word_vector, k):
     return word_vector
 
 
-def var_fast_sort(word_vector_path, dis_path, window_size):
+def local_beam_search_fast_test(word_vector_path, dis_path, window_size, metric_path=None):
     QTR = []
     dis = pd.read_csv(dis_path, index_col=0)
     dis = dis.values.tolist()
-    rv = modeling.build_rv(word_vector_path)
+    rv = modeling.build_rv(word_vector_path, metric_path=metric_path)
+    metric = None
+    if metric_path is not None:
+        metric = pd.read_csv(metric_path, index_col=0)
+    word_vector = pd.read_csv(word_vector_path, index_col=0)
+    row_name = word_vector._stat_axis.values.tolist()
+    dis_dict = {}
+    for i in range(len(row_name)):
+        dis_dict2 = {}
+        for j in range(len(row_name)):
+            dis_dict2[row_name[j]] = dis[i][j]
+        dis_dict[row_name[i]] = dis_dict2
+    rv_sort = sorted(rv.items(), key=lambda x: x[1], reverse=True)
+    maxRV = rv_sort[0][0]
+    QTR.append(maxRV)
+    word_vector = word_vector.drop(maxRV, axis=0)
+    cnt = 0
+    while len(word_vector) > 0:
+        cnt += 1
+        CTR = []
+        rv = modeling.build_rv_2(word_vector, metric=metric)
+        rv_sort = sorted(rv.items(), key=lambda x: x[1], reverse=True)
+        min_window_size = min(window_size, len(rv_sort))
+        for i in range(min_window_size):
+            rv_sort_filename_value = random.choice(rv_sort)
+            CTR.append(rv_sort_filename_value[0])
+        maxDistance = -1
+        for i in range(len(QTR)):
+            for j in range(len(CTR)):
+                if dis_dict[QTR[i]][CTR[j]] > maxDistance:
+                    maxDistance = dis_dict[QTR[i]][CTR[j]]
+                    maxRV = CTR[j]
+        QTR.append(maxRV)
+        word_vector = word_vector.drop(maxRV, axis=0)
+    return QTR
+
+
+def var_fast_sort(word_vector_path, dis_path, window_size, metric_path=None):
+    QTR = []
+    dis = pd.read_csv(dis_path, index_col=0)
+    dis = dis.values.tolist()
+    rv = modeling.build_rv(word_vector_path, metric_path=metric_path)
+    metric = None
+    if metric_path is not None:
+        metric = pd.read_csv(metric_path, index_col=0)
     word_vector = pd.read_csv(word_vector_path, index_col=0)
     row_name = word_vector._stat_axis.values.tolist()
 
@@ -56,7 +100,7 @@ def var_fast_sort(word_vector_path, dis_path, window_size):
     while len(word_vector) > 0:
         cnt += 1
         CTR = []
-        rv = modeling.build_rv_2(word_vector)
+        rv = modeling.build_rv_2(word_vector, metric)
         rv_sort = sorted(rv.items(), key=lambda x: x[1], reverse=True)
         min_window_size = min(window_size, len(rv_sort))
         for i in range(min_window_size):
@@ -140,29 +184,57 @@ def var(word_vector_path, dis_path, window_size, model_path=None):
     return end - start
 
 
-def danger_fast_test(word_vector_path, sigmoid):
+def greedy_fast_test(word_vector_path, metric_path=None):
     QTR = []
-    rv = modeling.build_rv(word_vector_path)
+    rv = modeling.build_rv(word_vector_path, metric_path=metric_path)
+    metric = None
+    if metric_path is not None:
+        metric = pd.read_csv(metric_path, index_col=0)
+    word_vector = pd.read_csv(word_vector_path, index_col=0)
+    rv_sort = sorted(rv.items(), key=lambda x: x[1], reverse=True)
+    maxRV = rv_sort[0][0]
+    QTR.append(maxRV)
+    word_vector = word_vector.drop(maxRV, axis=0)
+    cnt = 0
+    while len(word_vector) > 0:
+        cnt += 1
+        rv = modeling.build_rv_2(word_vector, metric=metric)
+        rv_sort = sorted(rv.items(), key=lambda x: x[1], reverse=True)
+        maxRV = rv_sort[0][0]
+        QTR.append(maxRV)
+        word_vector = word_vector.drop(maxRV, axis=0)
+    return QTR
+
+
+def danger_fast_test(word_dic_path, word_vector_path, sigmoid, metric_path=None):
+    QTR = []
+    word_dic_path = pd.read_csv(word_dic_path, index_col=0)
+    block_line_feature_length = len(word_dic_path)
+
+    rv = modeling.build_rv(word_vector_path, metric_path=metric_path)
+    metric = None
+    if metric_path is not None:
+        metric = pd.read_csv(metric_path, index_col=0)
     word_vector = pd.read_csv(word_vector_path, index_col=0)
     rv_sort = sorted(rv.items(), key=lambda x: x[1], reverse=True)
     maxRV = rv_sort[0][0]
     QTR.append(maxRV)
     if maxRV not in dataset.bug_total:
-        word_vector = updateFV_3(word_vector, maxRV)
+        word_vector = updateFV_3(word_vector, maxRV, max_length=block_line_feature_length)
     else:
-        word_vector = updateFV_2(word_vector, sigmoid, maxRV)
+        word_vector = updateFV_2(word_vector, sigmoid, maxRV, max_length=block_line_feature_length)
     word_vector = word_vector.drop(maxRV, axis=0)
     cnt = 0
     while len(word_vector) > 0:
         cnt += 1
-        rv = modeling.build_rv_2(word_vector)
+        rv = modeling.build_rv_2(word_vector, metric=metric)
         rv_sort = sorted(rv.items(), key=lambda x: x[1], reverse=True)
         maxRV = rv_sort[0][0]
         QTR.append(maxRV)
         if maxRV not in dataset.bug_total:
-            word_vector = updateFV_3(word_vector, maxRV)
+            word_vector = updateFV_3(word_vector, maxRV, max_length=block_line_feature_length)
         else:
-            word_vector = updateFV_2(word_vector, sigmoid, maxRV)
+            word_vector = updateFV_2(word_vector, sigmoid, maxRV, max_length=block_line_feature_length)
         word_vector = word_vector.drop(maxRV, axis=0)
     return QTR
 
@@ -223,12 +295,17 @@ def danger(word_vector_path, sigmoid, model_path):
     return end - start
 
 
-def var_danger_fast_test(word_vector_path, dis_path, window_size, sigmoid):
+def var_danger_fast_test(word_dic_path, word_vector_path, dis_path, window_size, sigmoid, metric_path=None):
     QTR = []
+    word_dic_path = pd.read_csv(word_dic_path, index_col=0)
+    block_line_feature_length = len(word_dic_path)
     increment = 2
     dis = pd.read_csv(dis_path, index_col=0)
     dis = dis.values.tolist()
-    rv = modeling.build_rv(word_vector_path)
+    rv = modeling.build_rv(word_vector_path, metric_path=metric_path)
+    metric = None
+    if metric_path is not None:
+        metric = pd.read_csv(metric_path, index_col=0)
     word_vector = pd.read_csv(word_vector_path, index_col=0)
     row_name = word_vector._stat_axis.values.tolist()
     dis_dict = {}
@@ -241,15 +318,15 @@ def var_danger_fast_test(word_vector_path, dis_path, window_size, sigmoid):
     maxRV = rv_sort[0][0]
     QTR.append(maxRV)
     if maxRV not in dataset.bug_total:
-        word_vector = updateFV_3(word_vector, maxRV)
+        word_vector = updateFV_3(word_vector, maxRV, max_length=block_line_feature_length)
     else:
-        word_vector = updateFV_2(word_vector, sigmoid, maxRV)
+        word_vector = updateFV_2(word_vector, sigmoid, maxRV, max_length=block_line_feature_length)
     word_vector = word_vector.drop(maxRV, axis=0)
     cnt = 0
     while len(word_vector) > 0:
         cnt += 1
         CTR = []
-        rv = modeling.build_rv_2(word_vector)
+        rv = modeling.build_rv_2(word_vector, metric=metric)
         rv_sort = sorted(rv.items(), key=lambda x: x[1], reverse=True)
         min_window_size = min(window_size, len(rv_sort))
         for i in range(min_window_size):
@@ -262,16 +339,18 @@ def var_danger_fast_test(word_vector_path, dis_path, window_size, sigmoid):
                     maxRV = CTR[j]
         QTR.append(maxRV)
         if maxRV not in dataset.bug_total:
-            word_vector = updateFV_3(word_vector, maxRV)
+            word_vector = updateFV_3(word_vector, maxRV, max_length=block_line_feature_length)
             if increment == 2:
-                window_size += increment * window_size
+                window_size = increment * window_size
             else:
                 window_size += increment
             if window_size > len(rv_sort):
                 window_size = len(rv_sort) // 2
                 increment = 1
         else:
-            word_vector = updateFV_2(word_vector, sigmoid, maxRV)
+            word_vector = updateFV_2(word_vector, sigmoid, maxRV, max_length=block_line_feature_length)
+        if maxRV == 'Sample1030.mdl':
+            print('found it')
         word_vector = word_vector.drop(maxRV, axis=0)
     return QTR
 
@@ -401,3 +480,15 @@ def random_sort(word_vector_path, model_path):
     random_list.reverse()
     end = start.time()
     return end - start
+
+
+if __name__ == '__main__':
+    folders = ['50', '60', '70', '80', '90', '95']
+    for folder in folders:
+        average_apfd = 0
+        print('folder', folder)
+        for _ in tqdm(range(10)):
+            QTR = local_beam_search_fast_test('../data/' + folder + '/word_vector.csv', '../data/' + folder + '/div.csv', 5)
+            apfd = library.evaluate(QTR)
+            average_apfd += apfd
+        print(average_apfd / 10)

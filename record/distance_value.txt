@@ -1,0 +1,29 @@
+start calculate distance ...
+the apfd in folder 50
+the apfd of Manhattan is 0.6164335664335664
+the apfd of Euclidean is 0.6272727272727272
+the apfd of Cosine is 0.6258741258741258
+the apfd in folder 60
+the apfd of Manhattan is 0.7573898494143892
+the apfd of Euclidean is 0.6653653095370886
+the apfd of Cosine is 0.6165644171779141
+the apfd in folder 70
+the apfd of Manhattan is 0.8074494949494949
+the apfd of Euclidean is 0.7070707070707071
+the apfd of Cosine is 0.6744528619528619
+the apfd in folder 80
+the apfd of Manhattan is 0.8605594405594406
+the apfd of Euclidean is 0.7387412587412587
+the apfd of Cosine is 0.6823776223776223
+the apfd in folder 90
+the apfd of Manhattan is 0.8308391608391609
+the apfd of Euclidean is 0.6354545454545454
+the apfd of Cosine is 0.6874825174825174
+the apfd in folder 95
+the apfd of Manhattan is 0.8640631668800682
+the apfd of Euclidean is 0.7090055484421681
+the apfd of Cosine is 0.5981647460520699
+the function has completed!
+manhattan_apfd=[0.6164335664335664, 0.7573898494143892, 0.8074494949494949, 0.8605594405594406, 0.8308391608391609, 0.8640631668800682]
+euclidean_apfd=[0.6272727272727272, 0.6653653095370886, 0.7070707070707071, 0.7387412587412587, 0.6354545454545454, 0.7090055484421681]
+cosine_apfd=[0.6258741258741258, 0.6165644171779141, 0.6744528619528619, 0.6823776223776223, 0.6874825174825174, 0.5981647460520699]
